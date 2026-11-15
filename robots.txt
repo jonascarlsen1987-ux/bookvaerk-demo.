@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /
+# Demo: hold siden ude af søgemaskiner, indtil juradiske oplysninger og funktioner er klar.
