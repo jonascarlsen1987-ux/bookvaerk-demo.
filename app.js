@@ -34,15 +34,43 @@ document.querySelectorAll('[data-plan]').forEach(a => a.addEventListener('click'
   const interest = document.getElementById('interest');
   if (interest) interest.value = a.dataset.plan === 'Plus' ? 'Plus – 1.299 kr./md.' : 'Start – 899 kr./md.';
   const status = document.getElementById('form-status');
-  if (status) status.textContent = `Du har valgt ${a.dataset.plan}. Formularen er lukket, indtil virksomheden er lanceret.`;
+  if (status) status.textContent = 'Du har valgt ' + a.dataset.plan + '. Udfyld felterne, og din e-mailapp åbnes med en færdig forespørgsel.';
 }));
-// Forms stay deliberately disabled until legal details and a real backend exist.
-// Never collect real personal information on this demonstration site.
+// Contact is handled locally through the visitor's own email app.
+// Nothing is collected by this static site or sent before the visitor presses Send.
 const contactForm = document.getElementById('contact-form');
 contactForm?.addEventListener('submit', e => {
   e.preventDefault();
+  if (!contactForm.reportValidity()) return;
+  const data = new FormData(contactForm);
+  const field = key => String(data.get(key) || '').trim();
+  const company = field('virksomhed');
+  const name = field('navn');
+  const replyEmail = field('email');
+  const phone = field('telefon');
+  const interest = field('interesse');
+  const message = field('besked');
+  const subject = 'BookVærk – forespørgsel fra ' + company.slice(0, 120);
+  const body = [
+    'Hej BookVærk',
+    '',
+    'Jeg vil gerne høre mere om jeres løsning.',
+    '',
+    'Virksomhed: ' + company,
+    'Kontaktperson: ' + name,
+    'E-mail til svar: ' + replyEmail,
+    'Telefon: ' + (phone || 'Ikke oplyst'),
+    'Interesse: ' + interest,
+    '',
+    'Besked:',
+    message || 'Jeg ønsker en uforpligtende gennemgang.',
+    '',
+    'Med venlig hilsen',
+    name
+  ].join('\n');
   const status = document.getElementById('form-status');
-  if (status) status.textContent = 'Demoen sendte ikke noget. Formularmodtagelse aktiveres først ved lancering.';
+  if (status) status.textContent = 'Din e-mailapp åbnes. Husk at trykke Send i mailprogrammet. Hvis den ikke åbner, skriv direkte til jonascarlsen1987@live.dk.';
+  window.location.href = 'mailto:jonascarlsen1987@live.dk?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
 });
 const bookingSlider = document.getElementById('calc-bookings');
 const marginInput = document.getElementById('calc-margin');
