@@ -1,4 +1,2 @@
 User-agent: *
 Allow: /
-
-Sitemap: https://bookvaerk-demo.onrender.com/sitemap.xml
