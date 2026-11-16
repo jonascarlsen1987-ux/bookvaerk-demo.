@@ -69,7 +69,7 @@ h1{font-size:clamp(36px,5vw,60px);letter-spacing:-.05em;line-height:1.1;margin:1
 <div class="scenario"><h3 id="scenario-heading">Example business revenue</h3><p class="field-hint" id="scenario-desc">Change these assumptions to explore a possible monthly revenue scenario. This is NOT a forecast of new customers from a website.</p><div class="range"><label for="jobs" id="jobs-label">Jobs per month</label><input id="jobs" min="0" max="10000" type="number" step="1" value="10"></div><div class="range"><label for="job-price" id="job-price-label">Average revenue per job (DKK)</label><input id="job-price" min="0" max="10000000" type="number" step="50" value="350"></div><output id="revenue">3.500 DKK</output><p class="field-hint" id="scenario-note">Illustrative gross revenue before VAT, operating expenses and tax. It is not a profit estimate or sales guarantee.</p></div>
 <div class="offer"><h3 id="offer-heading">The planned Site Favor subscriptions</h3><div class="amounts"><div><strong>499 DKK</strong><small id="setup-label">One-time setup</small></div><div><strong>499 DKK</strong><small id="month-label">Basis per month</small></div><div><strong>699 DKK</strong><small id="pro-label">Pro per month</small></div></div><p id="offer-description">Both packages cover website creation, hosting and agreed routine maintenance. The one-time setup and first month would only be payable after you approve the website and accept an agreement. Danish reference prices before VAT; country-specific prices and tax are not finalized.</p><p id="plan-note">Basis has a limited monthly AI quota. Pro includes a larger AI quota and additional assistance; neither has unlimited AI access.</p><a href="sitefavor-preview.html#plan-comparison" class="btn btn-alt" id="compare-plans" style="margin:0 8px 10px 0">Compare Basis &amp; Pro ✓ ✕ →</a><a href="mailto:jonascarlsen1987@live.dk" class="btn btn-alt" id="inquire">Ask about your website</a><p id="checkout-status">No payment or automatic website creation is available in this demo.</p></div>
 </div></section></main>
-<footer class="footer"><div class="wrap"><span id="footer-text">Site Favor – preliminary demo of the BookVærk concept, operated by dailywear.dk. Brand, domain, AI integration and payments are not finalized.</span> · <a href="sitefavor-preview.html">Site Favor</a></div></footer>
+<footer class="footer"><div class="wrap"><span id="footer-text">Site Favor – preliminary demo of the BookVærk concept, operated by dailywear.dk. Brand, domain, AI integration and payments are not finalized.</span> · <a href="sitefavor-preview.html">Site Favor</a><div class="legal-operator" style="margin-top:12px;line-height:1.85"><strong id="legal-heading">Registered business</strong>: <strong>dailywear.dk</strong> · CVR <strong>46827961</strong> · Albanivej 27B, st., 5792 Årslev, Denmark · <a href="mailto:jonascarlsen1987@live.dk">jonascarlsen1987@live.dk</a> · <a href="tel:+4542253125">+45 42 25 31 25</a> · <a href="privatliv.html" id="privacy-link">Privacy</a></div></div></footer>
 <script>
 "use strict";
 const langKey="sitefavor-language-v1";
@@ -103,6 +103,8 @@ status:"ILMAINEN LUONNOS · EI AI-LUONTIA TAI MAKSAMISTA",back:"Takaisin Site Fa
 }
 };
 const ids={status:"status-label",back:"back-link",kicker:"hero-kicker",heading:"hero-heading",lead:"hero-lead",disclaimer:"demo-disclaimer",form:"form-heading",company:"company-label",description:"description-label",hint:"description-hint",city:"city-label",style:"style-label",green:"style-green",blue:"style-blue",purple:"style-purple",black:"style-black",cream:"style-cream",generate:"generate",sample:"sample",privacy:"privacy-note",preview:"preview-heading",tag:"preview-tag",browser:"browser-label",subtitle:"site-subtitle",contact:"site-button",services:"services-heading",mock:"mock-note",scenario:"scenario-heading",scenarioDesc:"scenario-desc",jobs:"jobs-label",price:"job-price-label",scenarioNote:"scenario-note",offer:"offer-heading",setup:"setup-label",month:"month-label",offerDesc:"offer-description",ask:"inquire",checkout:"checkout-status",footer:"footer-text"};
+
+const legalTitles={da:["Registreret virksomhed","Privatliv"],en:["Registered business","Privacy"],de:["Eingetragenes Unternehmen","Datenschutz"],pl:["Zarejestrowana firma","Prywatność"],sv:["Registrerat företag","Integritet"],no:["Registrert virksomhet","Personvern"],fi:["Rekisteröity yritys","Tietosuoja"]};
 const planText={
 da:["Basis · pr. måned","Pro · pr. måned","Engangsoprettelse","Basis har begrænset månedlig AI-kvote. Pro har større AI-kvote og flere værktøjer – ingen pakke har ubegrænset AI.","Sammenlign Basis og Pro ✓ ✕ →"],
 en:["Basis · per month","Pro · per month","One-time setup","Basis has a limited monthly AI quota. Pro has a larger AI quota and more tools – neither has unlimited AI.","Compare Basis and Pro ✓ ✕ →"],
@@ -190,6 +192,8 @@ function selectedLanguage(next){
  const t=textByLang[language];
  document.documentElement.lang=language;
  el("lang-select").value=language;
+ el("legal-heading").textContent=legalTitles[language][0];
+ el("privacy-link").textContent=legalTitles[language][1];
  const defaultCountries={da:"DK",en:"DK",de:"DE",pl:"PL",sv:"SE",no:"NO",fi:"FI"};
  if(!el("country").dataset.manual)el("country").value=defaultCountries[language];
  el("country-label").textContent=modeTexts[language][0];
