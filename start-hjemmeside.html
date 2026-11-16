@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Beskriv din nye hjemmeside | BookVærk</title>
+<meta name="description" content="Fortæl BookVærk om din virksomhed og hvilken hjemmeside du ønsker. Vi kan forberede et uforpligtende forslag til hjemmeside og kontakt eller booking.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://bookvaerk-demo.onrender.com/start-hjemmeside.html">
+<meta name="theme-color" content="#102c2a">
+<link rel="stylesheet" href="style.css">
+<style>
+.brief-main{background:#f5f9f4;min-height:75vh;padding:58px 0 90px}
+.brief-wrap{width:min(900px,calc(100% - 36px));margin:auto}
+.brief-head{max-width:760px;margin-bottom:30px}
+.brief-head h1{color:#102c2a;font-size:clamp(36px,5.8vw,62px);line-height:1.12;letter-spacing:-.04em;margin:13px 0}
+.brief-head p{font-size:18px;line-height:1.65;color:#3b5a4a}
+.brief-kicker{font-size:12px;text-transform:uppercase;letter-spacing:.11em;color:#356a4b;font-weight:800}
+.brief-card{background:#fff;border:1px solid #d9e5dc;box-shadow:0 12px 36px rgba(20,50,30,.04);border-radius:19px;padding:31px}
+.brief-card h2{color:#183c2e;font-size:24px;margin:0 0 8px}
+.brief-card p{color:#4c6255;line-height:1.65}
+.brief-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 16px}
+.brief-field{display:flex;flex-direction:column;gap:6px;min-width:0}
+.brief-field.wide{grid-column:1 / -1}
+.brief-field label,.brief-check label{font-size:14px;font-weight:760;color:#1c4030}
+.brief-field input,.brief-field select,.brief-field textarea{padding:13px 14px;border:1px solid #cbd8cf;border-radius:10px;font-size:15px;width:100%;background:#fff;color:#122c22}
+.brief-field textarea{resize:vertical;min-height:86px}
+.brief-help{font-size:12px;color:#617468}
+.brief-check{display:flex;align-items:flex-start;gap:9px;margin:22px 0}
+.brief-check input{width:18px;height:18px;flex-shrink:0}
+.brief-actions{display:flex;flex-wrap:wrap;gap:13px;align-items:center;margin-top:20px}
+.brief-btn{background:#102c2a;border:0;color:white;border-radius:10px;font-size:15px;font-weight:800;padding:16px 22px;cursor:pointer}
+.brief-note{border-left:4px solid #99ba78;background:#eff6e9;padding:14px 17px;margin:24px 0;border-radius:0 10px 10px 0;line-height:1.6;color:#244633}
+.brief-small{font-size:13px;color:#53695c}
+.brief-small a{color:#245b42;text-decoration:underline}
+.brief-footer{background:#102c2a;color:#dfece3;padding:24px 0;font-size:13px}
+.brief-footer a{color:#d1f46d}
+@media(max-width:740px){.brief-grid{grid-template-columns:1fr}.brief-card{padding:21px}.site-header .nav{display:flex;flex-wrap:wrap;gap:8px;padding:8px 0}.site-header .nav a{font-size:12px}.site-header .nav-inner{display:block}.site-header .logo{display:inline-block;margin:6px 0 9px}}
+</style>
+</head>
+<body>
+<header class="site-header"><div class="container nav-inner"><a href="index.html" class="logo"><span class="logo-symbol">B<span>+</span></span> book<span>værk</span><i>.</i></a><nav class="nav" aria-label="Navigation"><a href="index.html">Forside</a><a href="eksempel-bilpleje.html">Se eksempel</a><a href="pilot-bilpleje.html">Pilottilbud</a><a href="index.html#kontakt" class="nav-cta">Kontakt os ↗</a></nav></div></header>
+<main class="brief-main"><div class="brief-wrap">
+<section class="brief-head">
+<span class="brief-kicker">FORTÆL OM DIN VIRKSOMHED</span>
+<h1>Fortæl os, hvordan din nye hjemmeside skal være.</h1>
+<p>Du behøver ikke selv bygge noget. Beskriv dine ønsker, så BookVærk kan forberede et forslag til dig. Det er gratis og uforpligtende at spørge.</p>
+</section>
+<section class="brief-card">
+<h2>Din hjemmeside – kort fortalt</h2>
+<p>Udfyld de oplysninger, du allerede kender. Vi kan afklare resten sammen, inden en eventuel aftale.</p>
+<div class="brief-note"><strong>Sådan fungerer formularen lige nu:</strong> Når du trykker “Åbn min e-mail”, åbner din egen e-mailapp med oplysningerne. Du skal selv trykke Send. Der oprettes ikke automatisk en hjemmeside eller et abonnement.</div>
+<form id="customer-brief-form">
+<div class="brief-grid">
+<div class="brief-field"><label for="business">Virksomhedens navn *</label><input id="business" name="business" maxlength="120" placeholder="F.eks. Byens Bilpleje" required></div>
+<div class="brief-field"><label for="contact">Dit navn *</label><input id="contact" name="contact" maxlength="100" placeholder="Kontaktperson" required></div>
+<div class="brief-field"><label for="email">Din e-mail *</label><input id="email" name="email" type="email" maxlength="254" placeholder="dig@virksomhed.dk" required></div>
+<div class="brief-field"><label for="phone">Telefon (valgfrit)</label><input id="phone" name="phone" maxlength="35" type="tel" placeholder="12 34 56 78"></div>
+<div class="brief-field"><label for="city">Hvor holder virksomheden til? *</label><input id="city" name="city" maxlength="120" placeholder="F.eks. Odense" required></div>
+<div class="brief-field"><label for="businessType">Branche *</label><select id="businessType" name="businessType" required><option value="">Vælg branche</option><option>Bilpleje og bilklargøring</option><option>Mobil bilpleje</option><option>Anden servicevirksomhed</option></select></div>
+<div class="brief-field wide"><label for="services">Hvilke ydelser tilbyder du? *</label><textarea id="services" name="services" maxlength="1200" rows="3" placeholder="F.eks. indvendig rengøring, polering, klargøring, coating..." required></textarea></div>
+<div class="brief-field"><label for="website">Har du en hjemmeside i forvejen?</label><input id="website" name="website" maxlength="250" placeholder="Link eller skriv nej"></div>
+<div class="brief-field"><label for="domain">Har du et ønsket domæne?</label><input id="domain" name="domain" maxlength="150" placeholder="F.eks. minbilpleje.dk"></div>
+<div class="brief-field"><label for="style">Farver og stil</label><input id="style" name="style" maxlength="180" placeholder="F.eks. sort, blå og enkel"></div>
+<div class="brief-field"><label for="solution">Hvad skal hjemmesiden kunne?</label><select id="solution" name="solution"><option>Hjemmeside og kontakt</option><option>Hjemmeside og bookingforespørgsel</option><option>Hjemmeside med direkte booking</option><option>Jeg er ikke sikker endnu</option></select></div>
+<div class="brief-field wide"><label for="details">Andet vi skal vide (valgfrit)</label><textarea id="details" name="details" maxlength="1200" rows="3" placeholder="F.eks. særlige ønsker, priseksempler eller inspiration til designet"></textarea><span class="brief-help">Skriv ikke adgangskoder, CPR-numre eller andre følsomme oplysninger.</span></div>
+</div>
+<div class="brief-check"><input type="checkbox" id="understand" required><label for="understand">Jeg forstår, at dette kun er en uforpligtende forespørgsel, og at jeg skal sende den fra min egen e-mailapp. BookVærk må bruge oplysningerne til at besvare min henvendelse.</label></div>
+<button class="brief-btn" type="submit">Åbn min e-mail med forespørgslen ↗</button>
+<p class="brief-small" aria-live="polite" id="brief-status">Du får ikke en betalingsaftale ved at udfylde formularen. Læs vores <a href="privatliv.html">privatlivsoplysninger</a>.</p>
+</form>
+</section>
+</div></main>
+<footer class="brief-footer"><div class="brief-wrap">BookVærk drives af dailywear.dk · CVR 46827961 · <a href="index.html">Forside</a> · <a href="privatliv.html">Privatliv</a></div></footer>
+<script>
+'use strict';
+document.getElementById('customer-brief-form').addEventListener('submit',function(e){
+ e.preventDefault();
+ if(!this.reportValidity())return;
+ const data=new FormData(this);
+ const val=k=>String(data.get(k)||'').trim();
+ const values=[
+ ['Virksomhed',val('business')],['Kontaktperson',val('contact')],['E-mail',val('email')],
+ ['Telefon',val('phone')||'Ikke angivet'],['By/område',val('city')],
+ ['Branche',val('businessType')],['Ydelser',val('services')],
+ ['Nuværende hjemmeside',val('website')||'Ikke angivet'],['Ønsket domæne',val('domain')||'Ikke angivet'],
+ ['Stil/farver',val('style')||'Ikke angivet'],['Ønsket løsning',val('solution')],
+ ['Øvrige oplysninger',val('details')||'Ingen']
+ ];
+ const text=['Hej BookVærk','','Jeg ønsker et uforpligtende forslag til min hjemmeside.','',...values.map(x=>x[0]+': '+x[1]),'','Med venlig hilsen',val('contact')].join('\n');
+ document.getElementById('brief-status').textContent='Din e-mailapp åbnes nu. Husk at trykke Send. Hvis intet sker, så skriv direkte til jonascarlsen1987@live.dk.';
+ location.href='mailto:jonascarlsen1987@live.dk?subject='+encodeURIComponent('BookVærk hjemmesideforespørgsel – '+val('business').slice(0,80))+'&body='+encodeURIComponent(text);
+});
+</script>
+</body>
+</html>
