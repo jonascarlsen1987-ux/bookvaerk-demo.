@@ -3,7 +3,7 @@
 ## Besluttet af ejeren (16. november 2026)
 - Markeder: Danmark, Tyskland, Polen, Sverige, Norge og Finland.
 - Interfacesprog: dansk, engelsk, tysk, polsk, svensk, norsk og finsk.
-- Dansk referencepris: **999 DKK i engangsoprettelse + 499 DKK pr. måned, ekskl. moms**.
+- Dansk referencepris: **499 DKK i engangsoprettelse + Basis 499 DKK pr. måned (eller planlagt Pro 699 DKK pr. måned), ekskl. moms**.
 - Inkluderet: opsætning af kundens hjemmeside, hosting og **aftalt almindelig månedlig vedligeholdelse**.
 - Kunden skal kunne afprøve en AI-genereret hjemmeside **gratis før køb**.
 - **Ingen betalingsopkrævning, før kunden har godkendt hjemmesiden og accepteret aftalen**. Engangsbeløb og første måneds abonnement kan først kræves ved denne godkendelse.
@@ -21,7 +21,7 @@
 1. **Gratis forhåndsvisning:** Anonym besøgende vælger sprog og beskriver virksomheden. En server-side AI-rute genererer et begrænset, faktuelt hjemmesideudkast som strukturerede data. Egen app gengiver udkastet i godkendelige temaer. Rate-limit, botkontrol, forbrugskvoter og dataminimering skal beskytte mod misbrug og uventede API-omkostninger.
 2. **Valgfri kontakt/identifikation:** Kunden oplyser firmanavn, land, e-mail, eventuelt CVR-/momsnummer og ønsker. Bekræft e-mail, før personligt udkast eller redigeringslink sendes. Anvend et personligt link med udløb, ikke et almindeligt frit ChatGPT-link. Ingen passwords eller følsomme oplysninger i briefen.
 3. **AI-ændringer og kundegodkendelse:** Gem versioner og vis ændringer. Kunde godkender én identificeret version. Oplysning om eventuelle spekulative priseksempler, billeder og SEO-tekster skal være tydelig; AI må ikke opfinde anmeldelser, certifikater, kundeeksempler eller garantier.
-4. **Aftale og betaling:** Kunden læser og accepterer landespecifikke B2B-vilkår. Opret derefter en **Stripe Checkout-session på serveren** med engangslinje på 999 DKK + abonnementspris 499 DKK/måned for danske virksomheder. Ingen kortoplysninger gemmes i Site Favors egen kode. Betalingslink vises **først efter** godkendelse. Pris, moms, valuta og eventuelle betalte tredjepartsydelser vises på forhånd. Brug Stripe-hændelser (signaturkontrolleret webhook) til at markere betaling som gennemført; håndtér hændelser idempotent. Undgå at udgive på baggrund af kundens browser-redirect alene.
+4. **Aftale og betaling:** Kunden læser og accepterer landespecifikke B2B-vilkår. Opret derefter en **Stripe Checkout-session på serveren** med engangslinje på 499 DKK + abonnementspris 499 DKK/måned for danske virksomheder. Ingen kortoplysninger gemmes i Site Favors egen kode. Betalingslink vises **først efter** godkendelse. Pris, moms, valuta og eventuelle betalte tredjepartsydelser vises på forhånd. Brug Stripe-hændelser (signaturkontrolleret webhook) til at markere betaling som gennemført; håndtér hændelser idempotent. Undgå at udgive på baggrund af kundens browser-redirect alene.
 5. **Udgivelse:** Når godkendelse, vilkår og bekræftet første betaling foreligger, opretter systemet kundens isolerede site/deployment med entydigt navn, eget eller standarddomæne efter aftale og SSL. Sikkerhedstest og kontaktformular-test er obligatorisk. Implementér rollback af fejlslagen udgivelse.
 6. **Månedlig vedligeholdelse:** Kunde kan indsende en rettelse i kontrolpanel. Ændringsagent kontrollerer rettigheder, rettelsens omfang, faktuelle oplysninger og regressionstester. For større opgaver sendes en særskilt aftale om tilkøb før udførelse. Driftsopgaver og status-/fejlalarmer logges. Betalingsfejl håndteres efter klare varsler og kundevilkår, ikke øjeblikkelig vilkårlig nedlukning.
 7. **Drift og databeskyttelse:** Database, adgangsstyring, logning, backuper, backup-gendannelse, dataminimering og slettefrister. Databehandleraftaler for relevante leverandører. Landeforskelle i moms, oplysningstekster, fortrydelse/abonnementsregler og salg til virksomheder gennemgås inden aktivering.
@@ -43,7 +43,7 @@ Denne fil er en **teknisk projektplan**, ikke en kontrakt, betalingsintegration 
 
 ## Forslag under drøftelse: abonnementspakker og AI-budget (16. november 2026)
 
-**Dette er ikke vedtaget og må ikke vises som gældende priser på kundevendte sider.** Den sidst bekræftede model er fortsat 999 DKK engangsoprettelse og 499 DKK/måned. Ejeren overvejer en billigere opstartspris, men har ikke besluttet beløbet.
+**Bekræftet 16. november 2026:** Engangsoprettelsen er nedsat til 499 DKK ekskl. moms. Basis koster 499 DKK/måned; Pro til 699 DKK/måned er den planlagte pakkemodel og skal funktions- og budgettestes før salg.
 
 | Forslået pakke | Månedspris ekskl. moms | Muligt AI-indhold | Foreslået AI-budget, ikke abonnementspris hos OpenAI |
 |---|---:|---|---:|
