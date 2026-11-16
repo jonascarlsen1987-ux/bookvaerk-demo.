@@ -40,3 +40,22 @@
 - [ ] Oversættelser og lokaliserede fakturaer/checkout testet af relevante sprogkyndige.
 
 Denne fil er en **teknisk projektplan**, ikke en kontrakt, betalingsintegration eller juridisk vurdering. Udgiv ikke påstande om fuld AI-automatisering, før end-to-end-flowet er testet med rigtige systemer.
+
+## Forslag under drøftelse: abonnementspakker og AI-budget (16. november 2026)
+
+**Dette er ikke vedtaget og må ikke vises som gældende priser på kundevendte sider.** Den sidst bekræftede model er fortsat 999 DKK engangsoprettelse og 499 DKK/måned. Ejeren overvejer en billigere opstartspris, men har ikke besluttet beløbet.
+
+| Forslået pakke | Månedspris ekskl. moms | Muligt AI-indhold | Foreslået AI-budget, ikke abonnementspris hos OpenAI |
+|---|---:|---|---:|
+| Basis | 499 DKK | Begrænset AI-hjælp + aftalt almindelig månedlig vedligeholdelse | Skal fastsættes efter pilotmåling, ikke 0 DKK i reel driftsomkostning |
+| Pro | 699 DKK | Flere AI-redigeringer og forbedringsforslag | Op til 100 DKK API-budget/kunde/måned, ikke en fast ekstern Pro-licens |
+| Business / Pro Plus (valgfri senere) | 899 DKK | Udvidet AI-adgang og prioriteret kapacitet | Større budget eller flere kvoter efter faktisk test |
+
+- **ChatGPT Pro og OpenAI API er ikke det samme.** Der findes ikke automatisk et dedikeret Pro-abonnement til Site Favors kunder, som koster 100 DKK/måned. OpenAI API faktureres for faktisk brug af modeller og værktøjer; ChatGPT-abonnementer har særskilt fakturering.
+- Kunden betaler den aftalte månedspris til Site Favor gennem en betalingsudbyder. Virksomheden betaler sin API-regning særskilt. Et internt budget på 100 DKK er ikke en automatisk direkte overførsel til OpenAI og ikke nødvendigvis et præcist udgiftsbeløb.
+- I priseksempler med 100 DKK reelt AI-forbrug er tilbageværende omsætning fra 699 DKK = 599 DKK og fra 899 DKK = 799 DKK **før hosting, gebyrer, andre omkostninger og skat** (priser ekskl. moms). Dette er ikke overskud.
+- Også Basis-kunder kan give AI-omkostninger, selv om AI-adgang er inkluderet uden særskilt tillægspris.
+- Indfør kunde-/abonnements-ID, AI-kvote og forbrugsmåler med serverhåndhævet grænse. Reserver adgang til et antal klart definerede handlinger/credits i kontrakten; lov aldrig ubegrænset AI uden økonomiske grænser.
+- Ved opbrugt kvote: vis status, lad kunden vente til næste faktureringsperiode eller køb et gennemsigtigt, godkendt tilvalg. Ingen uvarslede API-overforbrug må opkræves kunden automatisk.
+- Afprøv virkelige AI-omkostninger pr. gratis skitse, hjemmesideproduktion og månedlig redigering, før Pro-kvote/pris offentliggøres.
+- Internationalt: lokalisér pakkefunktioner, valuta og moms pr. land, når køb aktiveres. Det er ikke sikkert, at dansk pris kan bruges direkte alle steder.
