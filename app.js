@@ -30,12 +30,6 @@ document.getElementById('booking-demo')?.addEventListener('submit', e => {
   msg.textContent = `Demo: ${service} den ${readable} kl. ${time}. Ingen rigtig booking er oprettet.`;
   msg.classList.add('success');
 });
-document.querySelectorAll('[data-plan]').forEach(a => a.addEventListener('click', () => {
-  const interest = document.getElementById('interest');
-  if (interest) interest.value = a.dataset.plan === 'Plus' ? 'Plus – 1.299 kr./md.' : 'Start – 899 kr./md.';
-  const status = document.getElementById('form-status');
-  if (status) status.textContent = 'Du har valgt ' + a.dataset.plan + '. Udfyld felterne, og din e-mailapp åbnes med en færdig forespørgsel.';
-}));
 // Contact is handled locally through the visitor's own email app.
 // Nothing is collected by this static site or sent before the visitor presses Send.
 const contactForm = document.getElementById('contact-form');
@@ -81,7 +75,7 @@ function updateCalculator() {
   const amount = bookings * margin;
   document.getElementById('calc-bookings-out').textContent = String(bookings);
   document.getElementById('calc-result').textContent = fmt.format(amount) + ' kr./md.';
-  document.getElementById('calc-net').textContent = 'Efter Plus-abonnement: ' + fmt.format(amount - 1299) + ' kr./md.';
+  document.getElementById('calc-net').textContent = 'Efter abonnement: ' + fmt.format(amount - 899) + ' kr./md.';
 }
 bookingSlider?.addEventListener('input',updateCalculator);
 marginInput?.addEventListener('input',updateCalculator);
