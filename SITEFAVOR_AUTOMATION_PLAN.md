@@ -13,7 +13,7 @@
 ## Virksomhedsidentitet og bankstatus (16. november 2026)
 - Registreret juridisk virksomhedsnavn: **dailywear.dk** (enkeltmandsvirksomhed).
 - **CVR: 46827961**. Registreret adresse: **Albanivej 27B, st., 5792 Årslev, Danmark**.
-- Offentlig kontakt til BookVærk/Site Favor: **jonascarlsen1987@live.dk**, **+45 42 25 31 25**.
+- Offentlig kontakt til Site Favor: **jonascarlsen1987@live.dk**, **+45 42 25 31 25**.
 - Same CVR/legal owner intended for **Dailywear.dk, XXXshoppen, Grejland og Site Favor** og eventuelle kommende webprojekter; brands er ikke hver for sig dokumenteret som selvstændige juridiske selskaber.
 - Den danske momsregistrerings aktuelle status skal verificeres i Skattestyrelsens officielle register, før betalings-/fakturaflowet tages i brug; CVR-status og momsstatus er forskellige forhold.
 - Revolut Business-sag **97213-31016-13811** sendt 16. november 2026: ønsket fælles erhvervskonto med **særskilt modtagekonto**, understøttelse af de fire forretninger, momsbetaling, internationale valutaer, og vurdering af dropshipping/voksenprodukter. Kun automatisk kvittering modtaget indtil videre. **Ingen bankkonto, Stripe, merchant-payout eller betalinger tilsluttes før Revoluts skriftlige afklaring og brugerens godkendelse.**
@@ -22,7 +22,7 @@
 ## Status nu
 - International brandforhåndsvisning: \`sitefavor-preview.html\`, med velkomstskærm og lokalt husket sprog.
 - Gratis interaktiv skitse: \`sitefavor-builder-demo.html\`, på syv sprog. Den er en **skabelondemo uden AI**; brugerdata sendes ikke ved skitsedannelse.
-- Eksisterende BookVærk-forespørgselsformular er baseret på \`mailto:\`; ingen automatisk indsamling endnu.
+- Eksisterende Site Favor-forespørgselsformular er baseret på \`mailto:\`; ingen automatisk indsamling endnu.
 - Render er en statisk tjeneste; den kan ikke på egen hånd sende e-mail, kalde OpenAI API med hemmelige servernøgler, føre konti eller opkræve betaling.
 - **Ikke klar:** Rigtig AI-generering, e-maillevering, betalingsintegration, kundegodkendelse, kundekonti, automatisk udgivelse.
 
