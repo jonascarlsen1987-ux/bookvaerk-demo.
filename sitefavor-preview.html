@@ -1,6 +1,7 @@
 <!doctype html>
-<html lang="da"><head>
+<html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<script>document.documentElement.classList.add("js");</script>
 <meta name="robots" content="noindex,nofollow">
 <title>Site Favor – international brand preview</title>
 <meta name="description" content="Foreløbig international designforhåndsvisning af Site Favor, det foreslåede nye navn til BookVærk.">
@@ -28,13 +29,49 @@ section.details{padding:65px 0 85px}.kicker{font-size:12px;color:#3d7b50;font-we
 .countries{margin:35px 0 0;display:flex;gap:9px;flex-wrap:wrap}.countries span{display:inline-block;border:1px solid #d7e3d6;background:white;border-radius:50px;padding:10px 16px;font-size:14px;font-weight:650}
 .pricebox{background:white;padding:23px 29px;border-radius:15px;border:1px solid #dde8dc;margin-top:24px}.pricebox strong{font-size:31px;letter-spacing:-.04em}
 .footer{background:#102c2a;color:#cfe0d1;padding:28px 0;font-size:13px}.footer a{color:var(--lime)}
+/* First-visit language welcome. The public page stays hidden until a language is chosen. */
+.language-welcome{display:none}
+.js:not(.language-ready) .site-content{display:none}
+.js:not(.language-ready) .language-welcome{min-height:100vh;min-height:100dvh;display:grid;place-items:center;background:radial-gradient(circle at 75% 5%,#264a3b 0,#102c2a 55%);color:white;padding:35px 16px}
+.welcome-panel{max-width:760px;width:100%;text-align:center}
+.welcome-brand{font-weight:850;font-size:clamp(35px,7vw,54px);letter-spacing:-.07em;margin-bottom:15px}
+.welcome-brand span{color:var(--lime)}
+.welcome-panel h1{font-size:clamp(32px,6vw,51px);margin:12px 0 10px;color:white}
+.welcome-panel p{font-size:17px;color:#d5e7db;margin:0 0 27px}
+.welcome-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;max-width:560px;margin:0 auto}
+.welcome-choice{display:flex;align-items:center;gap:13px;border:1px solid #526d5d;border-radius:14px;background:#204238;padding:16px 19px;color:white;text-align:left;font:700 17px/1.25 system-ui,-apple-system,Segoe UI,Arial,sans-serif;cursor:pointer;transition:background .15s,border-color .15s,transform .15s}
+.welcome-choice:hover,.welcome-choice:focus-visible{background:#2e5644;border-color:var(--lime);transform:translateY(-1px);outline:none}
+.welcome-choice .flag{font-size:26px}
+.welcome-arrow{margin-left:auto;color:var(--lime);font-size:19px}
+.welcome-help{font-size:13px !important;color:#b0caba !important;margin-top:25px !important}
+.language-reset{border:1px solid #577466;background:transparent;color:white;border-radius:9px;padding:10px 14px;font:700 13px system-ui,-apple-system,Segoe UI,Arial,sans-serif;cursor:pointer}
+.language-reset:hover,.language-reset:focus-visible{border-color:var(--lime);color:var(--lime)}
+@media(max-width:510px){.welcome-grid{grid-template-columns:1fr}.welcome-choice{padding:12px 16px}.welcome-panel h1{font-size:34px}}
+
 @media(max-width:720px){.two,.steps{grid-template-columns:1fr}.hero{padding:25px 0 60px}.demo{margin-top:12px}}
 </style></head><body>
+<section id="language-welcome" class="language-welcome" role="dialog" aria-modal="true" aria-labelledby="welcome-heading" aria-describedby="welcome-description">
+<div class="welcome-panel">
+<div class="welcome-brand">site<span>favor.</span></div>
+<div style="letter-spacing:.15em;font-size:11px;color:#c0d9ca;font-weight:750">WELCOME · VELKOMMEN · WILLKOMMEN</div>
+<h1 id="welcome-heading">What language do you prefer?</h1>
+<p id="welcome-description">Please choose your language to continue.</p>
+<div class="welcome-grid" role="group" aria-label="Choose your language">
+<button type="button" class="welcome-choice" data-welcome-lang="da"><span class="flag" aria-hidden="true">🇩🇰</span> Dansk <span class="welcome-arrow" aria-hidden="true">→</span></button>
+<button type="button" class="welcome-choice" data-welcome-lang="en"><span class="flag" aria-hidden="true">🇬🇧</span> English <span class="welcome-arrow" aria-hidden="true">→</span></button>
+<button type="button" class="welcome-choice" data-welcome-lang="de"><span class="flag" aria-hidden="true">🇩🇪</span> Deutsch <span class="welcome-arrow" aria-hidden="true">→</span></button>
+<button type="button" class="welcome-choice" data-welcome-lang="pl"><span class="flag" aria-hidden="true">🇵🇱</span> Polski <span class="welcome-arrow" aria-hidden="true">→</span></button>
+<button type="button" class="welcome-choice" data-welcome-lang="sv"><span class="flag" aria-hidden="true">🇸🇪</span> Svenska <span class="welcome-arrow" aria-hidden="true">→</span></button>
+<button type="button" class="welcome-choice" data-welcome-lang="no"><span class="flag" aria-hidden="true">🇳🇴</span> Norsk <span class="welcome-arrow" aria-hidden="true">→</span></button>
+<button type="button" class="welcome-choice" data-welcome-lang="fi"><span class="flag" aria-hidden="true">🇫🇮</span> Suomi <span class="welcome-arrow" aria-hidden="true">→</span></button>
+</div><p class="welcome-help">You can change your language anytime.</p>
+</div></section>
+<div class="site-content" id="site-content">
 <div class="note" id="banner">FORHÅNDSVISNING · IKKE ET AKTIVT BESTILLINGSSYSTEM</div>
 <header class="header"><div class="wrap">
 <div class="brand">site<span>favor</span><i>.</i></div>
-<div><label for="language" id="language-label">Sprog</label><select id="language" aria-label="Language">
-<option value="da">🇩🇰 Dansk</option><option value="en">🇬🇧 English</option><option value="de">🇩🇪 Deutsch</option><option value="pl">🇵🇱 Polski</option><option value="sv">🇸🇪 Svenska</option><option value="no">🇳🇴 Norsk</option><option value="fi">🇫🇮 Suomi</option></select></div></div></header>
+<div style="display:flex;gap:11px;align-items:center;flex-wrap:wrap"><button class="language-reset" id="choose-language-again" type="button">Choose language</button><div><label for="language" id="language-label">Language</label><select id="language" aria-label="Language">
+<option value="da">🇩🇰 Dansk</option><option value="en">🇬🇧 English</option><option value="de">🇩🇪 Deutsch</option><option value="pl">🇵🇱 Polski</option><option value="sv">🇸🇪 Svenska</option><option value="no">🇳🇴 Norsk</option><option value="fi">🇫🇮 Suomi</option></select></div></div></div></header>
 <main><section class="hero"><div class="wrap two">
 <div><div class="eyebrow" id="kicker">HJEMMESIDER TIL SMÅ VIRKSOMHEDER</div>
 <h1 id="headline">Din virksomhed.<br><em>Din hjemmeside.</em></h1>
@@ -54,6 +91,7 @@ section.details{padding:65px 0 85px}.kicker{font-size:12px;color:#3d7b50;font-we
 <div class="pricebox"><strong id="price">899 DKK / måned</strong> <span id="price-explainer">Dansk grundpris ekskl. moms · 0 kr. i oprettelse · lokale udenlandske priser er ikke fastlagt.</span></div>
 </div></section></main>
 <footer class="footer"><div class="wrap"><span id="footer-note">Site Favor er et foreslået brand for BookVærk, drevet af dailywear.dk. Dette er kun en forhåndsvisning. Navn, varemærker, domæne, internationale priser, AI-system og betaling er ikke endeligt afklaret.</span> · <a href="index.html">BookVærk</a></div></footer>
+</div><!-- /site-content -->
 <script>
 "use strict";
 const translations={
@@ -66,6 +104,47 @@ no:["FORHÅNDSVISNING · IKKE ET AKTIVT BESTILLINGSSYSTEM","Språk","NETTSIDER F
 fi:["ESIKATSELU · TILAUSJÄRJESTELMÄ EI OLE VIELÄ KÄYTÖSSÄ","Kieli","VERKKOSIVUT PIENYRITYKSILLE","Yrityksesi.<br><em>Verkkosivusi.</em>","Site Favorin tavoitteena on auttaa pieniä yrityksiä luomaan ammattimaiset verkkosivut ilman ohjelmointia.","Katso nykyinen yhteydenottolomake →","Tämä on ehdotetun uuden nimen ulkoasun esikatselu. Tekoälyllä luonti, maksaminen ja automaattinen julkaisu eivät ole vielä käytössä.","Yrityksesi nimi","Palvelut, kuvat ja yhteystiedot yhdessä paikassa.","Ota yhteyttä","Toimialasi","Tyylisi","YKSINKERTAINEN PROSESSI","Näin Site Favorin on tarkoitus toimia","Kuvaile yrityksesi","Yrityksen nimi, toimiala, toiveet ja yhteystiedot.","Esikatsele sivustoasi","Tekoälyn on tarkoitus luoda luonnos, jota voit muokata ja hyväksyä.","Hyväksy ennen maksamista","Tilaus alkaa vasta hyväksynnän ja sopimuksen jälkeen.","899 DKK / kuukausi","Tanskan perushinta ilman arvonlisäveroa · ei aloitusmaksua · muiden maiden hintoja ei ole päätetty.","Site Favor on ehdotettu uusi brändi BookVærkille, jota ylläpitää dailywear.dk. Tämä on vain esikatselu. Nimeä, tavaramerkkiä, verkkotunnusta, kansainvälisiä hintoja, tekoälyjärjestelmää ja maksuja ei ole vielä vahvistettu."]
 };
 const ids=["banner","language-label","kicker","headline","lead","cta","hero-note","sample-title","sample-body","sample-cta","sample-a","sample-b","details-kicker","details-headline","step1title","step1body","step2title","step2body","step3title","step3body","price","price-explainer","footer-note"];
-function setLang(lang){const v=translations[lang]||translations.da;ids.forEach((id,i)=>{const el=document.getElementById(id);if(id==="headline")el.innerHTML=v[i];else el.textContent=v[i]});document.documentElement.lang=lang;}
-document.getElementById("language").addEventListener("change",e=>setLang(e.target.value));setLang("da");
+const supportedLanguages=["da","en","de","pl","sv","no","fi"];
+const languageStorageKey="sitefavor-language-v1";
+function safeSavedLanguage(){
+ try{const value=localStorage.getItem(languageStorageKey);return supportedLanguages.includes(value)?value:null;}
+ catch{return null;}
+}
+function setLang(lang){
+ const selected=supportedLanguages.includes(lang)?lang:"en";
+ const v=translations[selected];
+ ids.forEach((id,i)=>{const el=document.getElementById(id);if(id==="headline")el.innerHTML=v[i];else el.textContent=v[i];});
+ document.documentElement.lang=selected;
+ document.getElementById("language").value=selected;
+ const choices={da:"Vælg sprog",en:"Choose language",de:"Sprache wählen",pl:"Wybierz język",sv:"Välj språk",no:"Velg språk",fi:"Valitse kieli"};
+ document.getElementById("choose-language-again").textContent=choices[selected];
+}
+function chooseLanguage(lang){
+ if(!supportedLanguages.includes(lang))return;
+ setLang(lang);
+ try{localStorage.setItem(languageStorageKey,lang)}catch{}
+ document.documentElement.classList.add("language-ready");
+ document.querySelector(".site-content").removeAttribute("inert");
+ document.getElementById("choose-language-again").focus({preventScroll:true});
+}
+function openLanguageWelcome(){
+ document.documentElement.classList.remove("language-ready");
+ document.querySelector(".site-content").setAttribute("inert","");
+ document.querySelector("[data-welcome-lang='da']").focus({preventScroll:true});
+}
+document.querySelectorAll("[data-welcome-lang]").forEach(button=>{
+ button.addEventListener("click",()=>chooseLanguage(button.dataset.welcomeLang));
+});
+document.getElementById("language").addEventListener("change",e=>chooseLanguage(e.target.value));
+document.getElementById("choose-language-again").addEventListener("click",openLanguageWelcome);
+const savedLanguage=safeSavedLanguage();
+if(savedLanguage){
+ setLang(savedLanguage);
+ document.documentElement.classList.add("language-ready");
+}else{
+ setLang("en");
+ document.querySelector(".site-content").setAttribute("inert","");
+ document.querySelector("[data-welcome-lang='da']").focus({preventScroll:true});
+}
+
 </script></body></html>
