@@ -57,8 +57,10 @@ h1{font-size:clamp(36px,5vw,60px);letter-spacing:-.05em;line-height:1.1;margin:1
 <div class="field"><label for="company" id="company-label">Business name (optional)</label><input id="company" maxlength="90" placeholder="e.g. Svendborg Bilpleje"></div>
 <div class="field"><label for="description" id="description-label">What does your business do?</label><textarea id="description" maxlength="900" placeholder="Svendborg Bilpleje. We offer interior and exterior car cleaning, seat cleaning and vehicle detailing."></textarea><span class="field-hint" id="description-hint">A couple of sentences are enough. Please do not enter sensitive data.</span></div>
 <div class="field"><label for="city" id="city-label">City or service area (optional)</label><input id="city" maxlength="100" placeholder="e.g. Svendborg"></div>
+<div class="field"><label for="country" id="country-label">Country</label><select id="country"><option value="DK">🇩🇰 Danmark</option><option value="DE">🇩🇪 Deutschland</option><option value="PL">🇵🇱 Polska</option><option value="SE">🇸🇪 Sverige</option><option value="NO">🇳🇴 Norge</option><option value="FI">🇫🇮 Suomi</option></select></div>
 <div class="field"><label for="style" id="style-label">Choose a look</label><select id="style"><option value="p-green" id="style-green">Forest green</option><option value="p-blue" id="style-blue">Deep blue</option><option value="p-purple" id="style-purple">Purple</option><option value="p-black" id="style-black">Charcoal</option><option value="p-cream" id="style-cream">Light beige</option></select></div>
 <div class="actions"><button class="btn btn-alt" id="generate" type="button">Create free sketch →</button><button class="btn btn-outline" id="sample" type="button">Use an example</button></div>
+<p class="field-hint" id="ai-status" role="status" aria-live="polite">AI preview is not connected yet. Using a local template.</p>
 <p class="field-hint" id="privacy-note">No account or card required. Data stays in this browser unless you choose to send an inquiry.</p>
 </div>
 <div class="panel" id="results">
@@ -111,6 +113,71 @@ no:["Basis · per måned","Pro · per måned","Engangsopprettelse · vurderes","
 fi:["Basis · kuukaudessa","Pro · kuukaudessa","Kertamaksu · harkinnassa","Basis sisältää rajallisen kuukausittaisen AI-kiintiön. Prossa on suurempi kiintiö ja enemmän työkaluja – kummassakaan ei ole rajatonta AI-käyttöä.","Vertaa Basis- ja Pro-paketteja ✓ ✕ →"]
 };
 const el=id=>document.getElementById(id);
+const aiApiBase="https://sitefavor-ai-api-demo.onrender.com";
+let aiEnabled=false;
+const modeTexts={
+ da:["Land","AI er endnu ikke tilsluttet. Lokal skabelon bruges.","AI er tilsluttet. Når du klikker, sendes din beskrivelse til vores AI-tjeneste for at lave skitsen.","Bygger dit AI-udkast…","AI-udkast lavet. Kontroller oplysningerne, inden du bruger dem.","AI er midlertidigt utilgængelig. Her er en skabelonskitse i stedet.","Når AI er aktiv, sendes din beskrivelse til vores sikre server og AI-leverandør, når du klikker. Der kræves ingen kortoplysninger."],
+ en:["Country","AI is not connected yet. Showing a local template.","AI is connected. Clicking generate sends your description to our AI service to create the sketch.","Building your AI sketch…","AI draft ready. Verify all details before using it.","AI unavailable for now. Showing a template sketch instead.","When AI is active, your description is sent to our server and AI provider when you click generate. No card required."],
+ de:["Land","KI ist noch nicht verbunden. Es wird eine lokale Vorlage verwendet.","KI ist verbunden. Beim Erstellen wird Ihre Beschreibung für den Entwurf an unseren KI-Dienst gesendet.","KI-Entwurf wird erstellt…","KI-Entwurf fertig. Bitte Angaben prüfen.","KI vorübergehend nicht verfügbar. Hier ist eine Vorlagenskizze.","Wenn KI aktiv ist, wird Ihre Beschreibung beim Klick an unseren Server und KI-Anbieter gesendet. Keine Karte erforderlich."],
+ pl:["Kraj","AI nie jest jeszcze podłączone. Wyświetlamy lokalny szablon.","AI jest połączone. Kliknięcie tworzenia wysyła opis do naszej usługi AI.","Tworzenie szkicu AI…","Szkic AI gotowy. Sprawdź wszystkie informacje.","AI tymczasowo niedostępne. Wyświetlamy szkic szablonu.","Gdy AI będzie aktywne, opis zostanie wysłany do naszego serwera i dostawcy AI po kliknięciu. Karta nie jest wymagana."],
+ sv:["Land","AI är inte anslutet ännu. Visar en lokal mall.","AI är anslutet. Din beskrivning skickas till vår AI-tjänst när du klickar på skapa.","Skapar AI-utkast…","AI-utkast klart. Kontrollera alla uppgifter.","AI tillfälligt otillgängligt. Visar en mall i stället.","När AI är aktivt skickas din beskrivning till vår server och AI-leverantör när du klickar. Inget kort krävs."],
+ no:["Land","AI er ennå ikke tilkoblet. Viser en lokal mal.","AI er tilkoblet. Beskrivelsen sendes til AI-tjenesten når du klikker på opprett.","Lager AI-skisse…","AI-skisse klar. Kontroller opplysningene.","AI er midlertidig utilgjengelig. Viser en malskisse i stedet.","Når AI er aktiv, sendes beskrivelsen til vår server og AI-leverandør når du klikker. Ingen betalingskort kreves."],
+ fi:["Maa","AI ei ole vielä käytössä. Näytetään paikallinen malli.","AI on yhdistetty. Kuvauksesi lähetetään AI-palveluumme, kun napsautat luontia.","Luodaan AI-luonnosta…","AI-luonnos valmis. Tarkista kaikki tiedot.","AI ei ole nyt käytettävissä. Näytämme malliluonnoksen.","Kun AI on käytössä, kuvauksesi lähetetään palvelimellemme ja AI-toimittajalle luontia napsauttaessasi. Maksukorttia ei tarvita."]
+};
+function showMode(mode){
+ const t=modeTexts[language]||modeTexts.en;
+ const status={offline:t[1],ready:t[2],building:t[3],done:t[4],failed:t[5]};
+ el("ai-status").textContent=status[mode]||t[1];
+ if(aiEnabled)el("privacy-note").textContent=t[6];
+}
+async function checkAi(){
+ try{
+  const controller=new AbortController();
+  const timeout=setTimeout(()=>controller.abort(),8000);
+  let response;try{response=await fetch(aiApiBase+"/api/health",{signal:controller.signal,cache:"no-store"});}finally{clearTimeout(timeout);}
+  if(response.ok){const status=await response.json();aiEnabled=status.ai_enabled===true;}
+ }catch{aiEnabled=false;}
+ showMode(aiEnabled?"ready":"offline");
+}
+async function generateWebsite(){
+ if(!el("description").value.trim()){renderSketch(true);return;}
+ if(!aiEnabled){
+  renderSketch(true);
+  el("results").scrollIntoView({behavior:"smooth",block:"start"});
+  return;
+ }
+ const b=el("generate");
+ b.disabled=true;showMode("building");
+ try{
+  const controller=new AbortController();
+  const timeout=setTimeout(()=>controller.abort(),29000);
+  let resp;
+  try{
+   resp=await fetch(aiApiBase+"/api/preview",{method:"POST",signal:controller.signal,
+    headers:{"Content-Type":"application/json"},
+    body:JSON.stringify({description:el("description").value.trim(),business_name:el("company").value.trim(),city:el("city").value.trim(),country:el("country").value,language})});
+  }finally{clearTimeout(timeout);}
+  if(!resp.ok)throw new Error("ai_unavailable");
+  const data=await resp.json();
+  const draft=data.draft;
+  if(!draft||!Array.isArray(draft.services))throw new Error("invalid_draft");
+  renderSketch(false);
+  el("site-name").textContent=draft.business_name||el("company").value.trim()||textByLang[language].fallback;
+  el("site-description").textContent=[draft.headline,draft.introduction].filter(Boolean).join("\n\n");
+  el("site-button").textContent=draft.contact_cta||textByLang[language].contact;
+  const list=el("service-list");list.replaceChildren();
+  for(const name of draft.services.slice(0,4)){
+   const div=document.createElement("div");div.className="service";div.textContent=String(name).slice(0,170);list.appendChild(div);
+  }
+  el("preview-tag").textContent="AI DRAFT · REVIEW BEFORE USE";
+  el("results").scrollIntoView({behavior:"smooth",block:"start"});
+  showMode("done");
+ }catch{
+  renderSketch(false);showMode("failed");
+  el("results").scrollIntoView({behavior:"smooth",block:"start"});
+ }finally{b.disabled=false;}
+}
+
 let language="en";
 function formatNum(n){return new Intl.NumberFormat(language==="no"?"nb-NO":language==="fi"?"fi-FI":language==="sv"?"sv-SE":language==="pl"?"pl-PL":language==="de"?"de-DE":language==="da"?"da-DK":"en-GB",{maximumFractionDigits:0}).format(n);}
 function updateRevenue(){
@@ -123,6 +190,9 @@ function selectedLanguage(next){
  const t=textByLang[language];
  document.documentElement.lang=language;
  el("lang-select").value=language;
+ const defaultCountries={da:"DK",en:"DK",de:"DE",pl:"PL",sv:"SE",no:"NO",fi:"FI"};
+ if(!el("country").dataset.manual)el("country").value=defaultCountries[language];
+ el("country-label").textContent=modeTexts[language][0];
  const pt=planText[language];
  el("month-label").textContent=pt[0];el("pro-label").textContent=pt[1];
  el("setup-label").textContent=pt[2];el("plan-note").textContent=pt[3];
@@ -134,6 +204,7 @@ function selectedLanguage(next){
  try{localStorage.setItem(langKey,language);}catch{}
  updateRevenue();
  renderSketch(false);
+ showMode(aiEnabled?"ready":"offline");
 }
 function extract(name,description){
  const trimmed=description.trim();
@@ -166,7 +237,8 @@ function renderSketch(showError){
  const body=t.emailIntro+"\n"+t.nameField+": "+x.company+"\n"+t.descriptionField+": "+raw+"\n"+t.cityField+": "+el("city").value.trim()+t.emailEnd;
  el("inquire").href="mailto:jonascarlsen1987@live.dk?subject="+encodeURIComponent(subject)+"&body="+encodeURIComponent(body);
 }
-el("generate").addEventListener("click",()=>{renderSketch(true);if(el("description").value.trim())el("results").scrollIntoView({behavior:"smooth",block:"start"});});
+el("generate").addEventListener("click",generateWebsite);
+el("country").addEventListener("change",()=>{el("country").dataset.manual="true";});
 el("sample").addEventListener("click",()=>{const t=textByLang[language];el("company").value=t.sampleCompany;el("description").value=t.sampleText;el("city").value=t.sampleCity;renderSketch(false);el("results").scrollIntoView({behavior:"smooth",block:"start"});});
 el("style").addEventListener("change",()=>renderSketch(false));
 el("jobs").addEventListener("input",updateRevenue);
@@ -174,4 +246,5 @@ el("job-price").addEventListener("input",updateRevenue);
 el("lang-select").addEventListener("change",e=>selectedLanguage(e.target.value));
 let saved=null;try{saved=localStorage.getItem(langKey);}catch{}
 selectedLanguage(saved||"en");
+checkAi();
 </script></body></html>
