@@ -10,6 +10,15 @@
 - Den præcise grænse for vedligeholdelse, support, rettelser, opsigelse, ejerskab, domæner, dataoverdragelse ved ophør og særskilte tilkøb kræver endelige kontraktvilkår.
 - Internationale priser, valutaer og momsregler skal afklares pr. kundeland, herunder særskilt behandling af Norge.
 
+## Virksomhedsidentitet og bankstatus (16. november 2026)
+- Registreret juridisk virksomhedsnavn: **dailywear.dk** (enkeltmandsvirksomhed).
+- **CVR: 46827961**. Registreret adresse: **Albanivej 27B, st., 5792 Årslev, Danmark**.
+- Offentlig kontakt til BookVærk/Site Favor: **jonascarlsen1987@live.dk**, **+45 42 25 31 25**.
+- Same CVR/legal owner intended for **Dailywear.dk, XXXshoppen, Grejland og Site Favor** og eventuelle kommende webprojekter; brands er ikke hver for sig dokumenteret som selvstændige juridiske selskaber.
+- Den danske momsregistrerings aktuelle status skal verificeres i Skattestyrelsens officielle register, før betalings-/fakturaflowet tages i brug; CVR-status og momsstatus er forskellige forhold.
+- Revolut Business-sag **97213-31016-13811** sendt 16. november 2026: ønsket fælles erhvervskonto med **særskilt modtagekonto**, understøttelse af de fire forretninger, momsbetaling, internationale valutaer, og vurdering af dropshipping/voksenprodukter. Kun automatisk kvittering modtaget indtil videre. **Ingen bankkonto, Stripe, merchant-payout eller betalinger tilsluttes før Revoluts skriftlige afklaring og brugerens godkendelse.**
+- Offentlig Site Favor-preview og builder viser juridisk navn/CVR/adresse/telefon/e-mail i footeren; den fælles privatlivstekst er udvidet til at dække Site Favors skitse og sprogvalg.
+
 ## Status nu
 - International brandforhåndsvisning: \`sitefavor-preview.html\`, med velkomstskærm og lokalt husket sprog.
 - Gratis interaktiv skitse: \`sitefavor-builder-demo.html\`, på syv sprog. Den er en **skabelondemo uden AI**; brugerdata sendes ikke ved skitsedannelse.
