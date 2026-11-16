@@ -4,7 +4,7 @@
  */
 import {createServer} from "node:http";
 const PORT=Number(process.env.PORT||3000);
-const ORIGIN=process.env.SITEFAVOR_ALLOWED_ORIGIN||"https://bookvaerk-demo.onrender.com";
+const ORIGIN=process.env.SITEFAVOR_ALLOWED_ORIGIN||"https://sitefavor-demo.onrender.com";
 const KEY=process.env.OPENAI_API_KEY||"";
 const MODEL=process.env.SITEFAVOR_AI_MODEL||"gpt-4o-mini";
 const ENABLED=process.env.SITEFAVOR_ENABLE_AI==="true";
