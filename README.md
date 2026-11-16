@@ -1,4 +1,4 @@
-# BookVærk demo
+# Site Favor demo
 
 Offentlig demonstration. Ingen reelle betalinger eller kundedata indsamles.
 
