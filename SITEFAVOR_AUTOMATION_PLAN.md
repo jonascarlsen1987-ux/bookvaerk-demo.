@@ -68,3 +68,10 @@ Denne fil er en **teknisk projektplan**, ikke en kontrakt, betalingsintegration 
 - Ved opbrugt kvote: vis status, lad kunden vente til næste faktureringsperiode eller køb et gennemsigtigt, godkendt tilvalg. Ingen uvarslede API-overforbrug må opkræves kunden automatisk.
 - Afprøv virkelige AI-omkostninger pr. gratis skitse, hjemmesideproduktion og månedlig redigering, før Pro-kvote/pris offentliggøres.
 - Internationalt: lokalisér pakkefunktioner, valuta og moms pr. land, når køb aktiveres. Det er ikke sikkert, at dansk pris kan bruges direkte alle steder.
+
+## International lead generation – 16. november 2026
+- Seks selvstændige, søgbare landingssider er oprettet på `sitefavor-demo.onrender.com`: `sitefavor-de.html`, `sitefavor-pl.html`, `sitefavor-sv.html`, `sitefavor-no.html`, `sitefavor-fi.html` og `sitefavor-en.html`. Dansk er forsiden `/`.
+- De har unikke lokale titler/beskrivelser, separat URL, hreflang-alternativer, tydeligt demoforbehold, gratis skitse og en `mailto:`-henvendelse. Builder vælger sprog/land automatisk via URL-parametre.
+- **Første mål:** 15 betalende kunder pr. måned ultimo 2026 (ejerens mål, ikke en prognose eller garanti). Mål særskilt besøg, reelle henvendelser, opfølgning og indgåede betalingsaftaler. Betaling og kontrakter først når bank, moms, vilkår, service og AI er klar.
+- Internationale kanaler der skal vurderes med brugers godkendte udbyderkonto: Tyske Kleinanzeigen Dienstleistungen/Webdesign, polske Oferteo, tyske freelancermap og global Product Hunt. Opret ikke falske profiler eller automatiske massebeskeder.
+- **Teknisk opmærksomhedspunkt:** Render-builden kopierer pt. `*.html *.css *.js robots.txt _headers`, men ikke `sitemap.xml`. XML-sitemap er opdateret i GitHub, men bliver ikke publiceret før build-kommandoen ændres eller en anden publiceringsmetode er valgt. Locale HTML-sider kan stadig findes via interne links/hreflang, uden garanti for indeksering. Search Console kræver ejerskabsbekræftelse.
