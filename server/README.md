@@ -9,11 +9,11 @@ OpenAI Responses API med JSON-schema for strukturerede hjemmesideudkast. Billig 
 - Node 20+: `node server/index.mjs` (ingen npm-pakker).
 - Render gratis webservice: `sitefavor-ai-api-demo` i Frankfurt.
 - `GET /api/health`: oplyser, om AI er aktiveret.
-- `POST /api/preview`: kræver `Origin: https://bookvaerk-demo.onrender.com`, JSON med `description`, `language`, `country`, `business_name`, `city`.
+- `POST /api/preview`: kræver `Origin: https://sitefavor-demo.onrender.com`, JSON med `description`, `language`, `country`, `business_name`, `city`.
 - De syv sprog og seks landekoder er whitelistet.
 - OpenAI API-nøgle må **kun** indsættes i Render som hemmelig miljøvariabel, **aldrig** på frontend, i GitHub eller i chats.
 - `SITEFAVOR_ENABLE_AI=false` er bevidst sat; backend returnerer 503 og ingen AI-omkostninger indtil aktivering.
-- `SITEFAVOR_ALLOWED_ORIGIN=https://bookvaerk-demo.onrender.com`.
+- `SITEFAVOR_ALLOWED_ORIGIN=https://sitefavor-demo.onrender.com`.
 - `SITEFAVOR_AI_MODEL=gpt-4o-mini`.
 - `OPENAI_API_KEY` er endnu ikke konfigureret.
 - Webfrontenden spørger først `/api/health`. Når AI ikke er aktiveret, forbliver den eksisterende **lokale skabelondemo**.
