@@ -249,6 +249,13 @@ el("jobs").addEventListener("input",updateRevenue);
 el("job-price").addEventListener("input",updateRevenue);
 el("lang-select").addEventListener("change",e=>selectedLanguage(e.target.value));
 let saved=null;try{saved=localStorage.getItem(langKey);}catch{}
-selectedLanguage(saved||"en");
+const landingParams=new URLSearchParams(location.search);
+const landingLang=landingParams.get("lang");
+const landingCountry=landingParams.get("country");
+if(["DK","DE","PL","SE","NO","FI"].includes(landingCountry)){
+ el("country").dataset.manual="1";
+ el("country").value=landingCountry;
+}
+selectedLanguage(landingLang&&Object.hasOwn(textByLang,landingLang)?landingLang:(saved||"en"));
 checkAi();
 </script></body></html>
