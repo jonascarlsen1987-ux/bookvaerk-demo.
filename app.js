@@ -44,9 +44,9 @@ contactForm?.addEventListener('submit', e => {
   const phone = field('telefon');
   const interest = field('interesse');
   const message = field('besked');
-  const subject = 'BookVærk – forespørgsel fra ' + company.slice(0, 120);
+  const subject = 'Site Favor – forespørgsel fra ' + company.slice(0, 120);
   const body = [
-    'Hej BookVærk',
+    'Hej Site Favor',
     '',
     'Jeg vil gerne høre mere om jeres løsning.',
     '',
