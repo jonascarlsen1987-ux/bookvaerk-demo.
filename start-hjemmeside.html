@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Beskriv din nye hjemmeside | BookVærk</title>
-<meta name="description" content="Fortæl BookVærk om din virksomhed og hvilken hjemmeside du ønsker. Vi kan forberede et uforpligtende forslag til hjemmeside og kontakt eller booking.">
+<title>Bestil hjemmesideforslag – 0 kr. i oprettelse | BookVærk</title>
+<meta name="description" content="Fortæl om din lille virksomhed. BookVærk forbereder hjemmesideforslag: 0 kr. i oprettelse, 899 kr./md. ekskl. moms først efter godkendelse og aftale.">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://bookvaerk-demo.onrender.com/start-hjemmeside.html">
 <meta name="theme-color" content="#102c2a">
@@ -36,6 +36,7 @@
 .brief-footer{background:#102c2a;color:#dfece3;padding:24px 0;font-size:13px}
 .brief-footer a{color:#d1f46d}
 @media(max-width:740px){.brief-grid{grid-template-columns:1fr}.brief-card{padding:21px}.site-header .nav{display:flex;flex-wrap:wrap;gap:8px;padding:8px 0}.site-header .nav a{font-size:12px}.site-header .nav-inner{display:block}.site-header .logo{display:inline-block;margin:6px 0 9px}}
+.brief-card#brief-preview[hidden]{display:none}
 </style>
 </head>
 <body>
@@ -44,29 +45,32 @@
 <section class="brief-head">
 <span class="brief-kicker">FORTÆL OM DIN VIRKSOMHED</span>
 <h1>Fortæl os, hvordan din nye hjemmeside skal være.</h1>
-<p>Du behøver ikke selv bygge noget. Beskriv dine ønsker, så BookVærk kan forberede et forslag til dig. Det er gratis og uforpligtende at spørge.</p>
+<p>Uanset om du driver frisørsalon, rengøring, håndværk, klinik eller noget andet: Beskriv dine ønsker, så vi kan forberede et hjemmesideforslag. 0 kr. i oprettelse, 899 kr./md. ekskl. moms – og først betaling efter godkendelse og aftale.</p>
 </section>
 <section class="brief-card">
 <h2>Din hjemmeside – kort fortalt</h2>
-<p>Udfyld de oplysninger, du allerede kender. Vi kan afklare resten sammen, inden en eventuel aftale.</p>
-<div class="brief-note"><strong>Sådan fungerer formularen lige nu:</strong> Når du trykker “Åbn min e-mail”, åbner din egen e-mailapp med oplysningerne. Du skal selv trykke Send. Der oprettes ikke automatisk en hjemmeside eller et abonnement.</div>
+<p>Udfyld det, du ved. Du kan også se en enkel skitse her på siden. Vi aftaler resten, før du godkender og betaler.</p>
+<div class="brief-note"><strong>Sådan fungerer formularen lige nu:</strong> Når du sender en forespørgsel, åbnes din egen e-mailapp. Du skal selv trykke Send. Dette er endnu ikke en AI-bygger eller et betalingssystem. Vi opretter ingen abonnementer og opkræver intet på denne side.</div>
 <form id="customer-brief-form">
 <div class="brief-grid">
-<div class="brief-field"><label for="business">Virksomhedens navn *</label><input id="business" name="business" maxlength="120" placeholder="F.eks. Byens Bilpleje" required></div>
+<div class="brief-field"><label for="business">Virksomhedens navn *</label><input id="business" name="business" maxlength="120" placeholder="F.eks. Salon Vest eller Byens Rengøring" required></div>
 <div class="brief-field"><label for="contact">Dit navn *</label><input id="contact" name="contact" maxlength="100" placeholder="Kontaktperson" required></div>
 <div class="brief-field"><label for="email">Din e-mail *</label><input id="email" name="email" type="email" maxlength="254" placeholder="dig@virksomhed.dk" required></div>
 <div class="brief-field"><label for="phone">Telefon (valgfrit)</label><input id="phone" name="phone" maxlength="35" type="tel" placeholder="12 34 56 78"></div>
+<div class="brief-field"><label for="cvr">CVR (valgfrit)</label><input id="cvr" name="cvr" inputmode="numeric" maxlength="16" placeholder="Virksomhedens CVR-nummer"></div>
 <div class="brief-field"><label for="city">Hvor holder virksomheden til? *</label><input id="city" name="city" maxlength="120" placeholder="F.eks. Odense" required></div>
-<div class="brief-field"><label for="businessType">Branche *</label><select id="businessType" name="businessType" required><option value="">Vælg branche</option><option>Bilpleje og bilklargøring</option><option>Mobil bilpleje</option><option>Anden servicevirksomhed</option></select></div>
-<div class="brief-field wide"><label for="services">Hvilke ydelser tilbyder du? *</label><textarea id="services" name="services" maxlength="1200" rows="3" placeholder="F.eks. indvendig rengøring, polering, klargøring, coating..." required></textarea></div>
+<div class="brief-field"><label for="businessType">Branche *</label><select id="businessType" name="businessType" required><option value="">Vælg branche</option><option>Frisør eller barber</option><option>Rengøring og vinduespudsning</option><option>Håndværker og service</option><option>Klinik, behandling og wellness</option><option>Bilpleje og bilklargøring</option><option>Mobil bilpleje</option><option>Træning og undervisning</option><option>Konsulent og rådgivning</option><option>Transport og flytning</option><option>Butik uden onlinebetaling</option><option>Anden mindre virksomhed</option></select></div>
+<div class="brief-field wide"><label for="services">Hvilke ydelser tilbyder du? *</label><textarea id="services" name="services" maxlength="1200" rows="3" placeholder="F.eks. klipning, rengøring, reparationer eller behandlinger..." required></textarea></div>
 <div class="brief-field"><label for="website">Har du en hjemmeside i forvejen?</label><input id="website" name="website" maxlength="250" placeholder="Link eller skriv nej"></div>
-<div class="brief-field"><label for="domain">Har du et ønsket domæne?</label><input id="domain" name="domain" maxlength="150" placeholder="F.eks. minbilpleje.dk"></div>
+<div class="brief-field"><label for="domain">Har du et ønsket domæne?</label><input id="domain" name="domain" maxlength="150" placeholder="F.eks. minvirksomhed.dk"></div>
 <div class="brief-field"><label for="style">Farver og stil</label><input id="style" name="style" maxlength="180" placeholder="F.eks. sort, blå og enkel"></div>
-<div class="brief-field"><label for="solution">Hvad skal hjemmesiden kunne?</label><select id="solution" name="solution"><option>Hjemmeside og kontakt</option><option>Hjemmeside og bookingforespørgsel</option><option>Hjemmeside med direkte booking</option><option>Jeg er ikke sikker endnu</option></select></div>
+<div class="brief-field"><label for="solution">Hvad skal hjemmesiden kunne?</label><select id="solution" name="solution"><option>Hjemmeside og kontakt</option><option>Hjemmeside og bookingforespørgsel</option><option>Ønske om direkte booking (afklares særskilt)</option><option>Jeg er ikke sikker endnu</option></select></div>
 <div class="brief-field wide"><label for="details">Andet vi skal vide (valgfrit)</label><textarea id="details" name="details" maxlength="1200" rows="3" placeholder="F.eks. særlige ønsker, priseksempler eller inspiration til designet"></textarea><span class="brief-help">Skriv ikke adgangskoder, CPR-numre eller andre følsomme oplysninger.</span></div>
 </div>
 <div class="brief-check"><input type="checkbox" id="understand" required><label for="understand">Jeg forstår, at dette kun er en uforpligtende forespørgsel, og at jeg skal sende den fra min egen e-mailapp. BookVærk må bruge oplysningerne til at besvare min henvendelse.</label></div>
-<button class="brief-btn" type="submit">Åbn min e-mail med forespørgslen ↗</button>
+<div class="brief-actions"><button class="brief-btn" type="button" id="preview-button" style="background:#e4eedb;color:#173d2c">Vis en enkel skitse her på siden</button><button class="brief-btn" type="submit">Åbn min e-mail med forespørgslen ↗</button></div>
+<div class="brief-note" style="margin-top:20px"><strong>Abonnementsmodel:</strong> 0 kr. i oprettelse. 899 kr./md. ekskl. moms (1.123,75 kr. inkl. moms). Første betaling først efter du har godkendt hjemmesiden og accepteret en skriftlig aftale. Domæne, avanceret booking og andre tilkøb kan koste ekstra efter særskilt aftale.</div>
+<div class="brief-card" id="brief-preview" hidden style="margin-top:22px;background:#f6faf4"><p style="font-size:13px;color:#526857;font-weight:750">VISUEL SKITSE · IKKE AI-GENERERET · IKKE EN UDGIVET HJEMMESIDE</p><div style="border-radius:13px;overflow:hidden;border:1px solid #c9dcd0;background:white"><div style="background:#143d33;color:white;padding:25px"><strong id="pv-company" style="font-size:24px"></strong><p id="pv-city" style="color:#dbece0;margin:7px 0 0"></p></div><div style="padding:25px"><h2 id="pv-headline" style="margin:0 0 13px"></h2><p id="pv-services" style="white-space:pre-line"></p><p style="font-weight:700;color:#234834">Kontakt os for at høre mere</p><p id="pv-style" style="font-size:12px"></p></div></div><p style="margin:12px 0 0">Dette er kun en lokal skitse af et muligt layout. Du godkender ikke et abonnement her, og dine indtastninger bliver ikke sendt eller gemt ved denne knap.</p></div>
 <p class="brief-small" aria-live="polite" id="brief-status">Du får ikke en betalingsaftale ved at udfylde formularen. Læs vores <a href="privatliv.html">privatlivsoplysninger</a>.</p>
 </form>
 </section>
@@ -74,6 +78,17 @@
 <footer class="brief-footer"><div class="brief-wrap">BookVærk drives af dailywear.dk · CVR 46827961 · <a href="index.html">Forside</a> · <a href="privatliv.html">Privatliv</a></div></footer>
 <script>
 'use strict';
+document.getElementById('preview-button').addEventListener('click',function(){
+ const g=id=>String(document.getElementById(id).value||'').trim();
+ const company=g('business'), services=g('services'),city=g('city');
+ if(!company || !services){document.getElementById('brief-status').textContent='Udfyld mindst virksomhedsnavn og ydelser for at se en skitse.';return;}
+ document.getElementById('pv-company').textContent=company;
+ document.getElementById('pv-headline').textContent='Velkommen hos '+company;
+ document.getElementById('pv-services').textContent=services.slice(0,450);
+ document.getElementById('pv-city').textContent=[g('businessType'),city].filter(Boolean).join(' · ');
+ document.getElementById('pv-style').textContent='Ønsket stil: '+(g('style')||'Aftales senere')+'.';
+ const p=document.getElementById('brief-preview');p.hidden=false;p.scrollIntoView({behavior:'smooth',block:'nearest'});
+});
 document.getElementById('customer-brief-form').addEventListener('submit',function(e){
  e.preventDefault();
  if(!this.reportValidity())return;
@@ -81,7 +96,7 @@ document.getElementById('customer-brief-form').addEventListener('submit',functio
  const val=k=>String(data.get(k)||'').trim();
  const values=[
  ['Virksomhed',val('business')],['Kontaktperson',val('contact')],['E-mail',val('email')],
- ['Telefon',val('phone')||'Ikke angivet'],['By/område',val('city')],
+ ['Telefon',val('phone')||'Ikke angivet'],['CVR',val('cvr')||'Ikke angivet'],['By/område',val('city')],
  ['Branche',val('businessType')],['Ydelser',val('services')],
  ['Nuværende hjemmeside',val('website')||'Ikke angivet'],['Ønsket domæne',val('domain')||'Ikke angivet'],
  ['Stil/farver',val('style')||'Ikke angivet'],['Ønsket løsning',val('solution')],
