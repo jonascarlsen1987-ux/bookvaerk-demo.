@@ -137,7 +137,7 @@ section.details{padding:65px 0 85px}.kicker{font-size:12px;color:#3d7b50;font-we
 <p id="fx-fineprint" class="plan-fineprint">Approximate values, calculated using ECB reference rates from 13 November 2026 (1 EUR = 7.4756 DKK, 11.1075 SEK, 10.5695 NOK, 4.4113 PLN). Rates change. Checkout prices, VAT, payment currencies and foreign taxes must be confirmed before opening sales.</p></div></section>
 </section>
 </div></section></main>
-<footer class="footer"><div class="wrap"><span id="footer-note">Site Favor er et foreslået brand for BookVærk, drevet af dailywear.dk. Dette er kun en forhåndsvisning. Navn, varemærker, domæne, internationale priser, AI-system og betaling er ikke endeligt afklaret.</span> · <a href="index.html">BookVærk</a></div></footer>
+<footer class="footer"><div class="wrap"><span id="footer-note">Site Favor er et foreslået brand for BookVærk, drevet af dailywear.dk. Dette er kun en forhåndsvisning. Navn, varemærker, domæne, internationale priser, AI-system og betaling er ikke endeligt afklaret.</span> · <a href="index.html">BookVærk</a><div class="legal-operator" style="margin-top:12px;line-height:1.85"><strong id="legal-heading">Registered business</strong>: <strong>dailywear.dk</strong> · CVR <strong>46827961</strong> · Albanivej 27B, st., 5792 Årslev, Denmark · <a href="mailto:jonascarlsen1987@live.dk">jonascarlsen1987@live.dk</a> · <a href="tel:+4542253125">+45 42 25 31 25</a> · <a href="privatliv.html" id="privacy-link">Privacy</a></div></div></footer>
 </div><!-- /site-content -->
 <script>
 "use strict";
@@ -223,6 +223,8 @@ function translateComparison(lang){
  });
 }
 
+
+const legalTitles={da:["Registreret virksomhed","Privatliv"],en:["Registered business","Privacy"],de:["Eingetragenes Unternehmen","Datenschutz"],pl:["Zarejestrowana firma","Prywatność"],sv:["Registrerat företag","Integritet"],no:["Registrert virksomhet","Personvern"],fi:["Rekisteröity yritys","Tietosuoja"]};
 function setLang(lang){
  const selected=supportedLanguages.includes(lang)?lang:"en";
  const v=translations[selected];
@@ -242,6 +244,9 @@ function setLang(lang){
  };
  document.getElementById("setup-price-label").textContent=priceLabels[selected][0];
  document.getElementById("monthly-price-label").textContent=priceLabels[selected][1];
+ const legalLabel=legalTitles[selected]||legalTitles.en;
+ document.getElementById("legal-heading").textContent=legalLabel[0];
+ document.getElementById("privacy-link").textContent=legalLabel[1];
  translateComparison(selected);
  translateFx(selected);
 }
