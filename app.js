@@ -75,7 +75,7 @@ function updateCalculator() {
   const amount = bookings * margin;
   document.getElementById('calc-bookings-out').textContent = String(bookings);
   document.getElementById('calc-result').textContent = fmt.format(amount) + ' kr./md.';
-  document.getElementById('calc-net').textContent = 'Efter abonnement: ' + fmt.format(amount - 899) + ' kr./md.';
+  document.getElementById('calc-net').textContent = 'Efter abonnement: ' + fmt.format(amount - 499) + ' kr./md.';
 }
 bookingSlider?.addEventListener('input',updateCalculator);
 marginInput?.addEventListener('input',updateCalculator);
