@@ -48,6 +48,38 @@ section.details{padding:65px 0 85px}.kicker{font-size:12px;color:#3d7b50;font-we
 .language-reset:hover,.language-reset:focus-visible{border-color:var(--lime);color:var(--lime)}
 @media(max-width:510px){.welcome-grid{grid-template-columns:1fr}.welcome-choice{padding:12px 16px}.welcome-panel h1{font-size:34px}}
 
+
+/* Transparent feature comparison: planned commercial bundles, not yet operational */
+.plan-intro{margin:46px auto 15px;text-align:center;max-width:760px}
+.plan-intro h2{margin:0 0 10px}
+.plan-intro p{color:#577262}
+.plan-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;max-width:880px;margin:0 auto 20px}
+.plan-card{background:white;border:1px solid #d4e4d3;border-radius:18px;padding:26px;position:relative}
+.plan-card.pro{border:2px solid #75a65c;background:#f1f8ed}
+.plan-kicker{font-size:12px;color:#4e8256;letter-spacing:.1em;font-weight:850}
+.plan-cost{font-size:clamp(30px,4vw,39px);font-weight:850;letter-spacing:-.055em;color:#143c2c;line-height:1.15;margin:12px 0 3px}
+.plan-cost small{font-size:13px;letter-spacing:normal;font-weight:600;color:#577064}
+.plan-card p{font-size:14px;line-height:1.65;color:#476653;margin:10px 0 0}
+.plan-badge{display:inline-block;background:#234c35;color:white;border-radius:50px;padding:5px 10px;font-size:11px;font-weight:800;letter-spacing:.03em;margin-bottom:5px}
+.plan-compare{max-width:880px;margin:0 auto;background:white;border:1px solid #dae6dc;border-radius:18px;overflow:hidden}
+.plan-compare-title{padding:23px 24px 8px}
+.plan-compare-title h3{margin:0;font-size:23px;letter-spacing:-.03em}
+.feature-scroller{overflow-x:auto}
+.feature-table{border-collapse:collapse;width:100%;min-width:510px;font-size:14px}
+.feature-table th,.feature-table td{padding:12px 20px;border-bottom:1px solid #e6eee6}
+.feature-table th{background:#f5f9f5;color:#284735;text-align:left;font-size:13px}
+.feature-table th:not(:first-child),.feature-table td:not(:first-child){width:115px;text-align:center}
+.feature-table tr:last-child td{border-bottom:0}
+.feature-table td:first-child{font-weight:600;color:#284735}
+.feature-table th:last-child,.feature-table td:last-child{background:#f1f8ec}
+.feature-yes,.feature-no{display:inline-flex;width:27px;height:27px;align-items:center;justify-content:center;border-radius:50%;font-size:16px;font-weight:900}
+.feature-yes{color:#1c793e;background:#dff5e6}
+.feature-no{color:#bd2937;background:#ffebed}
+.plan-fineprint{padding:17px 23px 23px;color:#617769;font-size:12px;line-height:1.7}
+.plan-action{text-align:center;padding:20px 0 0}
+.plan-action a{background:#173e2d;color:white;display:inline-flex;text-decoration:none;border-radius:10px;padding:12px 19px;font-weight:800}
+@media(max-width:650px){.plan-cards{grid-template-columns:1fr}.plan-card{padding:20px}.plan-compare-title{padding:18px 17px 8px}.feature-table th,.feature-table td{padding:10px 11px}}
+
 @media(max-width:720px){.two,.steps{grid-template-columns:1fr}.hero{padding:25px 0 60px}.demo{margin-top:12px}}
 </style></head><body>
 <section id="language-welcome" class="language-welcome" role="dialog" aria-modal="true" aria-labelledby="welcome-heading" aria-describedby="welcome-description">
@@ -88,7 +120,18 @@ section.details{padding:65px 0 85px}.kicker{font-size:12px;color:#3d7b50;font-we
 <article class="step"><b>02</b><h3 id="step2title">Se hjemmesiden</h3><p id="step2body">AI skal bygge et udkast, som kunden kan rette til og godkende.</p></article>
 <article class="step"><b>03</b><h3 id="step3title">Godkend før betaling</h3><p id="step3body">Abonnementet starter først efter kundens godkendelse og en aftale.</p></article></div>
 <div class="countries"><span>🇩🇰 Danmark</span><span>🇩🇪 Deutschland</span><span>🇵🇱 Polska</span><span>🇸🇪 Sverige</span><span>🇳🇴 Norge</span><span>🇫🇮 Suomi</span></div>
-<div class="pricebox"><div class="price-columns"><div><small id="setup-price-label">Engangsoprettelse efter godkendelse</small><strong>999 DKK</strong></div><div><small id="monthly-price-label">Abonnement pr. måned</small><strong id="price">499 DKK / måned</strong></div></div><span id="price-explainer">Danske referencepriser ekskl. moms. Oprettelse, hosting og aftalt vedligeholdelse. Først betaling efter godkendelse og aftale. Udenlandske priser og moms fastlægges senere.</span></div>
+<div class="pricebox"><div class="price-columns"><div><small id="setup-price-label">One-time setup after approval</small><strong>999 DKK</strong></div><div><small id="monthly-price-label">Basis monthly plan</small><strong id="price">499 DKK / month</strong></div></div><span id="price-explainer">Danish reference prices before VAT. One-time setup is still under discussion. No payments are collected in this preview.</span></div>
+<section class="plans" id="plan-comparison" aria-labelledby="plans-heading">
+<div class="plan-intro"><div class="kicker" id="plans-kicker">COMPARE THE PLANS</div><h2 id="plans-heading">Choose Basis or Pro</h2><p id="plans-lead">Both plans cover website hosting, publishing and agreed monthly maintenance. Pro adds more AI assistance.</p></div>
+<div class="plan-cards">
+<article class="plan-card"><div class="plan-kicker">SITE FAVOR BASIS</div><div class="plan-cost">499 DKK <small id="basis-month">/ month</small></div><p id="basis-description">The essentials for your business website, with limited AI assistance.</p></article>
+<article class="plan-card pro"><div class="plan-badge" id="pro-tag">MORE AI INCLUDED</div><div class="plan-kicker">SITE FAVOR PRO</div><div class="plan-cost">699 DKK <small id="pro-month">/ month</small></div><p id="pro-description">Everything in Basis, plus a larger AI allowance and automated improvement suggestions.</p></article>
+</div>
+<div class="plan-compare"><div class="plan-compare-title"><h3 id="table-heading">What's included?</h3></div>
+<div class="feature-scroller"><table class="feature-table"><thead><tr><th scope="col" id="features-head">Features</th><th scope="col">Basis</th><th scope="col">Pro</th></tr></thead><tbody><tr><td id="feature-name-0">Web hosting</td><td><span class="feature-yes" aria-label="Included">✓</span></td><td><span class="feature-yes" aria-label="Included">✓</span></td></tr><tr><td id="feature-name-1">SSL / HTTPS security</td><td><span class="feature-yes" aria-label="Included">✓</span></td><td><span class="feature-yes" aria-label="Included">✓</span></td></tr><tr><td id="feature-name-2">Website publishing</td><td><span class="feature-yes" aria-label="Included">✓</span></td><td><span class="feature-yes" aria-label="Included">✓</span></td></tr><tr><td id="feature-name-3">Mobile-friendly design</td><td><span class="feature-yes" aria-label="Included">✓</span></td><td><span class="feature-yes" aria-label="Included">✓</span></td></tr><tr><td id="feature-name-4">Contact form</td><td><span class="feature-yes" aria-label="Included">✓</span></td><td><span class="feature-yes" aria-label="Included">✓</span></td></tr><tr><td id="feature-name-5">Basic SEO setup</td><td><span class="feature-yes" aria-label="Included">✓</span></td><td><span class="feature-yes" aria-label="Included">✓</span></td></tr><tr><td id="feature-name-6">Monthly routine maintenance</td><td><span class="feature-yes" aria-label="Included">✓</span></td><td><span class="feature-yes" aria-label="Included">✓</span></td></tr><tr><td id="feature-name-7">AI assistance within a monthly quota</td><td><span class="feature-yes" aria-label="Included">✓</span></td><td><span class="feature-yes" aria-label="Included">✓</span></td></tr><tr><td id="feature-name-8">Expanded monthly AI quota</td><td><span class="feature-no" aria-label="Not included">✕</span></td><td><span class="feature-yes" aria-label="Included">✓</span></td></tr><tr><td id="feature-name-9">AI suggestions for new sections</td><td><span class="feature-no" aria-label="Not included">✕</span></td><td><span class="feature-yes" aria-label="Included">✓</span></td></tr><tr><td id="feature-name-10">AI-based SEO improvement suggestions</td><td><span class="feature-no" aria-label="Not included">✕</span></td><td><span class="feature-yes" aria-label="Included">✓</span></td></tr><tr><td id="feature-name-11">Automated monthly AI review</td><td><span class="feature-no" aria-label="Not included">✕</span></td><td><span class="feature-yes" aria-label="Included">✓</span></td></tr></tbody></table></div>
+<p class="plan-fineprint" id="plan-fineprint">These are proposed plans, not active services. AI is limited by monthly quotas in both plans, including Pro; exact quotas and maintenance terms will be defined before launch. Setup fee is not final. Danish reference prices exclude VAT, and local prices differ by country. No payment before website approval and an agreement.</p></div>
+<div class="plan-action"><a href="sitefavor-builder-demo.html" id="plans-action">Try a free website sketch →</a></div>
+</section>
 </div></section></main>
 <footer class="footer"><div class="wrap"><span id="footer-note">Site Favor er et foreslået brand for BookVærk, drevet af dailywear.dk. Dette er kun en forhåndsvisning. Navn, varemærker, domæne, internationale priser, AI-system og betaling er ikke endeligt afklaret.</span> · <a href="index.html">BookVærk</a></div></footer>
 </div><!-- /site-content -->
@@ -110,6 +153,58 @@ function safeSavedLanguage(){
  try{const value=localStorage.getItem(languageStorageKey);return supportedLanguages.includes(value)?value:null;}
  catch{return null;}
 }
+
+const comparisonTranslations={
+da:{
+ kicker:"SAMMENLIGN PAKKERNE",heading:"Vælg Basis eller Pro",lead:"Begge pakker omfatter hosting, udgivelse og aftalt månedlig vedligeholdelse. Pro giver mere AI-hjælp.",
+ month:"/ måned",basis:"Alt det nødvendige til din hjemmeside, med begrænset AI-hjælp.",pro:"Alt i Basis plus en større AI-kvote og automatiske forbedringsforslag.",tag:"MERE AI INKLUDERET",table:"Hvad er inkluderet?",features:"Funktioner",yes:"Inkluderet",no:"Ikke inkluderet",action:"Prøv en gratis hjemmesideskitse →",
+ fine:"Pakkernes indhold er forslag, ikke aktive ydelser. AI har månedlige kvoter i begge pakker – også Pro. Præcise kvoter og vilkår for vedligeholdelse fastlægges før lancering. Engangsoprettelsen er endnu under overvejelse. Danske referencepriser ekskl. moms, og lokale priser varierer. Ingen betaling før hjemmesiden er godkendt og aftalen accepteret.",
+ rows:["Hosting af hjemmesiden","SSL / HTTPS-sikkerhed","Udgivelse af hjemmesiden","Mobilvenligt design","Kontaktformular","Grundlæggende SEO","Månedlig almindelig vedligeholdelse","AI-hjælp inden for månedlig kvote","Udvidet månedlig AI-kvote","AI-forslag til nye sektioner","AI-forslag til SEO-forbedringer","Automatisk månedlig AI-gennemgang"]},
+en:{
+ kicker:"COMPARE THE PLANS",heading:"Choose Basis or Pro",lead:"Both plans include hosting, publishing and agreed monthly maintenance. Pro offers more AI assistance.",
+ month:"/ month",basis:"Everything your business website needs, with limited AI assistance.",pro:"Everything in Basis, plus a larger AI quota and automated improvement suggestions.",tag:"MORE AI INCLUDED",table:"What's included?",features:"Features",yes:"Included",no:"Not included",action:"Try a free website sketch →",
+ fine:"These plans are proposals, not active services. Both plans have monthly AI quotas, including Pro; exact limits and maintenance terms will be confirmed before launch. The one-time setup fee is still under review. Danish reference prices exclude VAT; country-specific prices vary. No payment before website approval and an agreement.",
+ rows:["Website hosting","SSL / HTTPS security","Website publishing","Mobile-friendly design","Contact form","Basic SEO setup","Monthly routine maintenance","AI help within monthly quota","Expanded monthly AI quota","AI suggestions for new sections","AI-based SEO improvement suggestions","Automated monthly AI review"]},
+de:{
+ kicker:"TARIFE VERGLEICHEN",heading:"Basis oder Pro wählen",lead:"Beide Tarife enthalten Hosting, Veröffentlichung und vereinbarte monatliche Pflege. Pro bietet mehr KI-Unterstützung.",
+ month:"/ Monat",basis:"Alles Wichtige für Ihre Website mit begrenzter KI-Unterstützung.",pro:"Alle Basis-Leistungen sowie ein höheres KI-Kontingent und automatisierte Verbesserungsvorschläge.",tag:"MEHR KI ENTHALTEN",table:"Was ist enthalten?",features:"Leistungen",yes:"Enthalten",no:"Nicht enthalten",action:"Kostenlose Website-Skizze testen →",
+ fine:"Die Tarife sind Vorschläge und noch nicht aktiv. In beiden Tarifen, auch Pro, ist die KI-Nutzung monatlich begrenzt. Genaue Kontingente und Pflegebedingungen werden vor dem Start festgelegt. Die Einrichtungsgebühr wird noch geprüft. Dänische Referenzpreise ohne MwSt.; lokale Preise variieren. Zahlung erst nach Freigabe der Website und Vertrag.",
+ rows:["Website-Hosting","SSL- / HTTPS-Sicherheit","Veröffentlichung der Website","Mobilfreundliches Design","Kontaktformular","Grundlegende SEO","Vereinbarte monatliche Pflege","KI-Hilfe mit monatlichem Kontingent","Erweitertes monatliches KI-Kontingent","KI-Vorschläge für neue Abschnitte","KI-gestützte SEO-Vorschläge","Automatische monatliche KI-Prüfung"]},
+pl:{
+ kicker:"PORÓWNAJ PAKIETY",heading:"Wybierz Basis lub Pro",lead:"Oba pakiety obejmują hosting, publikację i uzgodnioną miesięczną obsługę. Pro zapewnia więcej pomocy AI.",
+ month:"/ miesiąc",basis:"Wszystko, czego potrzebuje strona Twojej firmy, z ograniczonym wsparciem AI.",pro:"Wszystko z Basis oraz większy limit AI i automatyczne sugestie ulepszeń.",tag:"WIĘCEJ AI W CENIE",table:"Co zawiera pakiet?",features:"Funkcje",yes:"Wliczone",no:"Nie wliczono",action:"Wypróbuj bezpłatny szkic strony →",
+ fine:"Pakiety są propozycjami, nie aktywnymi usługami. AI ma miesięczne limity w obu pakietach, także Pro. Dokładne limity i warunki obsługi zostaną ustalone przed startem. Opłata początkowa jest analizowana. Ceny referencyjne dla Danii nie zawierają VAT; ceny lokalne mogą się różnić. Płatność dopiero po akceptacji strony i umowy.",
+ rows:["Hosting strony","Zabezpieczenie SSL / HTTPS","Publikacja strony","Projekt dostosowany do telefonu","Formularz kontaktowy","Podstawowe SEO","Uzgodniona obsługa miesięczna","Pomoc AI w ramach miesięcznego limitu","Zwiększony miesięczny limit AI","Sugestie AI dotyczące nowych sekcji","Sugestie AI dotyczące ulepszeń SEO","Automatyczny miesięczny przegląd AI"]},
+sv:{
+ kicker:"JÄMFÖR PAKETEN",heading:"Välj Basis eller Pro",lead:"Båda paketen inkluderar hosting, publicering och avtalat månatligt underhåll. Pro erbjuder mer AI-hjälp.",
+ month:"/ månad",basis:"Allt du behöver för företagets webbplats, med begränsad AI-hjälp.",pro:"Allt i Basis plus en större AI-kvot och automatiska förbättringsförslag.",tag:"MER AI INGÅR",table:"Vad ingår?",features:"Funktioner",yes:"Ingår",no:"Ingår inte",action:"Prova en gratis webbplatsskiss →",
+ fine:"Paketen är förslag, inte aktiva tjänster. AI har månatliga kvoter i båda paketen, även Pro. Exakta kvoter och underhållsvillkor fastställs före lansering. Startavgiften övervägs fortfarande. Danska referenspriser exklusive moms; lokala priser varierar. Betalning först efter godkänd webbplats och avtal.",
+ rows:["Webbhotell / hosting","SSL / HTTPS-säkerhet","Publicering av webbplats","Mobilanpassad design","Kontaktformulär","Grundläggande SEO","Avtalat månatligt underhåll","AI-hjälp inom månadskvoten","Utökad månatlig AI-kvot","AI-förslag för nya avsnitt","AI-baserade SEO-förbättringsförslag","Automatisk månatlig AI-granskning"]},
+no:{
+ kicker:"SAMMENLIGN PAKKENE",heading:"Velg Basis eller Pro",lead:"Begge pakkene inkluderer hosting, publisering og avtalt månedlig vedlikehold. Pro gir mer AI-hjelp.",
+ month:"/ måned",basis:"Alt det nødvendige til nettsiden din, med begrenset AI-hjelp.",pro:"Alt i Basis samt en større AI-kvote og automatiske forbedringsforslag.",tag:"MER AI INKLUDERT",table:"Hva er inkludert?",features:"Funksjoner",yes:"Inkludert",no:"Ikke inkludert",action:"Prøv en gratis nettsideskisse →",
+ fine:"Pakkene er forslag, ikke aktive tjenester. AI har månedlige kvoter i begge pakker, også Pro. Nøyaktige kvoter og vilkår for vedlikehold fastsettes før lansering. Engangsopprettelsen vurderes fortsatt. Danske referansepriser uten MVA; lokale priser varierer. Betaling først etter godkjent nettside og avtale.",
+ rows:["Hosting av nettsiden","SSL / HTTPS-sikkerhet","Publisering av nettsiden","Mobilvennlig design","Kontaktskjema","Grunnleggende SEO","Avtalt månedlig vedlikehold","AI-hjelp innenfor månedlig kvote","Utvidet månedlig AI-kvote","AI-forslag til nye seksjoner","AI-baserte SEO-forslag","Automatisk månedlig AI-gjennomgang"]},
+fi:{
+ kicker:"VERTAILE PAKETTEJA",heading:"Valitse Basis tai Pro",lead:"Molempiin paketteihin sisältyvät hosting, julkaisu ja sovittu kuukausittainen ylläpito. Pro sisältää enemmän AI-apua.",
+ month:"/ kuukausi",basis:"Yrityksesi verkkosivun tärkeimmät ominaisuudet ja rajallinen AI-apu.",pro:"Kaikki Basis-ominaisuudet sekä suurempi AI-kiintiö ja automaattiset parannusehdotukset.",tag:"ENEMMÄN AI-TOIMINTOJA",table:"Mitä pakettiin sisältyy?",features:"Ominaisuudet",yes:"Sisältyy",no:"Ei sisälly",action:"Kokeile ilmaista verkkosivuluonnosta →",
+ fine:"Paketit ovat ehdotuksia eivätkä vielä käytössä. Molemmissa paketeissa, myös Prossa, AI-käytöllä on kuukausirajat. Tarkat kiintiöt ja ylläpidon ehdot vahvistetaan ennen julkaisua. Aloitusmaksu on vielä harkinnassa. Tanskan viitehinnat ilman ALV:tä; paikalliset hinnat vaihtelevat. Maksu vasta sivuston hyväksymisen ja sopimuksen jälkeen.",
+ rows:["Verkkosivujen hosting","SSL / HTTPS-suojaus","Verkkosivun julkaisu","Mobiiliystävällinen suunnittelu","Yhteydenottolomake","SEO-perusasetukset","Sovittu kuukausittainen ylläpito","AI-apu kuukausikiintiön rajoissa","Laajempi kuukausittainen AI-kiintiö","AI-ehdotukset uusista osioista","AI-ehdotukset SEO-parannuksista","Automaattinen kuukausittainen AI-tarkistus"]}
+};
+function translateComparison(lang){
+ const t=comparisonTranslations[lang]||comparisonTranslations.en;
+ const targets={kicker:"plans-kicker",heading:"plans-heading",lead:"plans-lead",basis:"basis-description",pro:"pro-description",tag:"pro-tag",table:"table-heading",features:"features-head",fine:"plan-fineprint",action:"plans-action"};
+ Object.entries(targets).forEach(([key,id])=>document.getElementById(id).textContent=t[key]);
+ document.getElementById("basis-month").textContent=t.month;
+ document.getElementById("pro-month").textContent=t.month;
+ const cells=document.querySelectorAll(".feature-table tbody tr");
+ cells.forEach((row,i)=>{
+  row.cells[0].textContent=t.rows[i];
+  row.cells[1].querySelector("span").setAttribute("aria-label",i<8?t.yes:t.no);
+  row.cells[2].querySelector("span").setAttribute("aria-label",t.yes);
+ });
+}
+
 function setLang(lang){
  const selected=supportedLanguages.includes(lang)?lang:"en";
  const v=translations[selected];
@@ -129,6 +224,7 @@ function setLang(lang){
  };
  document.getElementById("setup-price-label").textContent=priceLabels[selected][0];
  document.getElementById("monthly-price-label").textContent=priceLabels[selected][1];
+ translateComparison(selected);
 }
 function chooseLanguage(lang){
  if(!supportedLanguages.includes(lang))return;
