@@ -5,7 +5,7 @@
 import {createServer} from "node:http";
 const PORT=Number(process.env.PORT||3000);
 const ORIGIN=process.env.SITEFAVOR_ALLOWED_ORIGIN||"https://sitefavor-demo.onrender.com";
-const KEY=process.env.GEMINI_API_KEY||"";
+const KEY=(process.env.GEMINI_API_KEY||process.env.GOOGLE_API_KEY||"").trim();
 const MODEL=process.env.SITEFAVOR_GEMINI_MODEL||"gemini-2.5-flash-lite";
 const ENABLED=process.env.SITEFAVOR_ENABLE_AI==="true";
 const LANGS=new Set(["da","en","de","pl","sv","no","fi"]);
@@ -73,7 +73,7 @@ createServer(async(req,res)=>{
  const origin=req.headers.origin||"";
  const pathname=new URL(req.url||"/","http://localhost").pathname;
  if(pathname==="/api/health"&&req.method==="GET"){
-  return json(res,200,{ok:true,ai_enabled:ENABLED&&Boolean(KEY),provider:"gemini",service:"sitefavor-ai-demo",payments_enabled:false},origin);
+  return json(res,200,{ok:true,ai_enabled:ENABLED&&Boolean(KEY),provider:"gemini",key_configured:Boolean(KEY),ai_switch:ENABLED,service:"sitefavor-ai-demo",payments_enabled:false},origin);
  }
  if(pathname!=="/api/preview")return json(res,404,{error:"not_found"},origin);
  if(origin!==ORIGIN)return json(res,403,{error:"origin_not_allowed"},origin);
@@ -103,4 +103,4 @@ createServer(async(req,res)=>{
   console.error("AI preview failed",String(e.message||e).slice(0,60));
   return json(res,502,{error:"ai_temporarily_unavailable"},origin);
  }
-}).listen(PORT,"0.0.0.0",()=>console.log("Site Favor API started on "+PORT+" (AI enabled: "+Boolean(ENABLED&&KEY)+")"));
+}).listen(PORT,"0.0.0.0",()=>console.log("Site Favor API started on "+PORT+" (AI enabled: "+Boolean(ENABLED&&KEY)+", Gemini key configured: "+Boolean(KEY)+", AI switch: "+ENABLED+")"));
