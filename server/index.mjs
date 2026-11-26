@@ -39,11 +39,22 @@ async function body(req){
  for await (const c of req){size+=c.length;if(size>MAX_BYTES)throw new Error("body_too_large");chunks.push(c);}
  return JSON.parse(Buffer.concat(chunks).toString("utf8"));
 }
+async function availableModel(signal){
+ const response=await fetch("https://generativelanguage.googleapis.com/v1beta/models?pageSize=100",{headers:{"x-goog-api-key":KEY},signal});
+ if(!response.ok)throw new Error("model_list_"+response.status);
+ const data=await response.json();
+ const models=(data.models||[]).filter(m=>m.supportedGenerationMethods?.includes("generateContent")&&/^models\/gemini-[\d.]+-flash(?:-lite)?$/.test(m.name));
+ console.log("Gemini available stable flash models:",models.map(m=>m.name).join(","));
+ const selected=models.find(m=>m.name==="models/"+MODEL)||models.find(m=>m.name.endsWith("-flash-lite"))||models[0];
+ if(!selected)throw new Error("no_supported_flash_model");
+ return selected.name;
+}
 async function generate(input){
  const controller=new AbortController();
  const timeout=setTimeout(()=>controller.abort(),25000);
  try{
- const upstream=await fetch("https://generativelanguage.googleapis.com/v1beta/models/"+encodeURIComponent(MODEL)+":generateContent",{
+ const selected=await availableModel(controller.signal);
+ const upstream=await fetch("https://generativelanguage.googleapis.com/v1beta/"+selected+":generateContent",{
  method:"POST",signal:controller.signal,
  headers:{"x-goog-api-key":KEY,"Content-Type":"application/json"},
  body:JSON.stringify({
@@ -57,6 +68,7 @@ async function generate(input){
  const raw=(data.candidates?.[0]?.content?.parts||[]).map(p=>p.text||"").join("");
  if(!raw)throw new Error("empty_ai_response");
  const draft=JSON.parse(raw);
+ console.log("Gemini generation succeeded",selected);
  if(!Array.isArray(draft.services)||typeof draft.headline!=="string")throw new Error("invalid_ai_shape");
  return {
   business_name:String(draft.business_name||"").slice(0,90),
